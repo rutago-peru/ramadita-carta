@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carta de La Ramadita de Amy</title>
+<meta name="description" content="Pescados y mariscos en La Esperanza, Trujillo. Mira la carta y pide a domicilio por WhatsApp. De nuestra ramadita hasta la puerta de tu casa.">
+<link rel="icon" href="assets/icono.webp" type="image/webp">
+<meta property="og:type" content="website">
+<meta property="og:title" content="La Ramadita de Amy · Del mar a tu mesa">
+<meta property="og:description" content="Ceviches, parihuelas y mariscos frescos. Arma tu pedido y pídelo a domicilio por WhatsApp.">
+<meta property="og:image" content="assets/fotos/ceviche-mixto.webp">
+<meta name="theme-color" content="#0D2B5C">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@400;500;600;700;800;900&display=swap">
+<style>
+/* Manual de identidad La Ramadita de Amy: azul marino 50 %, azul océano 25 %, naranja 15 %, blanco 10 %; secundarios celeste, turquesa y arena.
+   Tipografías: Lemon Milk Bold (titulares) → Montserrat 900 en web; Montserrat (texto); manuscrita → Kaushan Script. */
+:root{
+  --marino:#0D2B5C;--marino2:#081d40;--oceano:#0099E6;--naranja:#FF6A13;--blanco:#FFFFFF;
+  --celeste:#BFE6FF;--turquesa:#00C2C7;--arena:#F6E3C4;--papel:#F4FAFF;
+  --h:'Montserrat',system-ui,sans-serif;--s:'Kaushan Script',cursive;
+  --gut:clamp(16px,4vw,48px);--ez:cubic-bezier(.2,.8,.2,1)
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+svg{overflow:hidden}
+body{margin:0;background:var(--marino);color:var(--blanco);font:15.5px/1.5 var(--h);overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer}
+img{display:block;max-width:100%}
+a{color:inherit}
+.big{font-family:var(--h);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.92;margin:0}
+.sc{font-family:var(--s);font-weight:400;text-transform:none;letter-spacing:0;color:var(--naranja)}
+.tq{color:var(--turquesa)}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border-radius:99px;border:1.5px solid currentColor;background:transparent;font-weight:700;font-size:15px;text-decoration:none;white-space:nowrap}
+.pill.solid{background:var(--naranja);color:var(--blanco);border-color:var(--naranja)}
+.pill.sea{background:var(--oceano);color:var(--blanco);border-color:var(--oceano)}
+.pill svg{width:20px;height:20px}
+:focus-visible{outline:3px solid var(--naranja);outline-offset:3px}
+/* adorno del manual: ola · ola */
+.orn{display:flex;align-items:center;gap:10px;color:var(--naranja)}
+.orn svg{width:64px;height:14px}
+.kick{font-weight:800;font-size:12.5px;letter-spacing:.14em;color:var(--turquesa)}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:10px var(--gut);pointer-events:none}
+.nav>*{pointer-events:auto}
+.iso{width:50px;height:50px;border-radius:50%;background:#fff;box-shadow:0 0 0 2px var(--naranja),0 6px 16px rgba(8,29,64,.35)}
+.iso img{width:100%;height:100%;border-radius:50%}
+.nav .r2{display:flex;gap:8px}
+.nav .pill{background:rgba(13,43,92,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;border-color:rgba(255,255,255,.35)}
+#cartTop{position:relative;padding:0 13px}
+.badge[hidden]{display:none}
+.badge{position:absolute;top:-4px;right:-4px;min-width:22px;height:22px;border-radius:11px;background:var(--naranja);color:#fff;font-size:12px;font-weight:800;display:grid;place-items:center;padding:0 5px}
+
+/* 1 · el mar sube */
+.hero{position:relative;height:300vh;height:300svh;background:var(--marino)}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:linear-gradient(180deg,#9fd8ff 0%,#d7f0ff 46%,#fff7ea 70%)}
+.sun{position:absolute;left:50%;top:45vh;top:45svh;width:min(64vw,36vh);width:min(64vw,36svh);aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none}
+.sun .rays{position:absolute;top:-34%;right:-34%;bottom:-34%;left:-34%;border-radius:50%;background:repeating-conic-gradient(from 0deg,rgba(255,106,19,.55) 0 5deg,transparent 5deg 15deg);
+  -webkit-mask:radial-gradient(circle,transparent 36%,#000 37%,#000 58%,transparent 70%);mask:radial-gradient(circle,transparent 36%,#000 37%,#000 58%,transparent 70%);animation:spin 60s linear infinite}
+.sun .disc{animation:breathe 7s ease-in-out infinite;position:absolute;top:0;right:0;bottom:0;left:0;border-radius:50%;background:radial-gradient(circle at 40% 35%,#ffb27a,var(--naranja) 60%,#e5530a)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.gulls{position:absolute;left:0;right:0;top:20vh;top:20svh;height:20vh;height:20svh;pointer-events:none;color:var(--marino)}
+.gulls svg{position:absolute;width:34px;height:14px;animation:gull 18s linear infinite}
+.gulls svg:nth-child(1){top:10%;animation-duration:22s}
+.gulls svg:nth-child(2){top:40%;width:24px;animation-duration:28s;animation-delay:-9s}
+.gulls svg:nth-child(3){top:0;width:20px;animation-duration:32s;animation-delay:-20s}
+@keyframes gull{from{transform:translateX(-12vw)}to{transform:translateX(112vw)}}
+.wm{position:absolute;z-index:8;left:50%;top:74px;width:min(78vw,430px);transform:translateX(-50%)}
+.wm{display:flex;aspect-ratio:527/124}
+.wm i{display:block;flex:1 1 0;min-width:0;height:100%;background:url(assets/wordmark.webp) no-repeat;background-size:1000% 100%;animation:wmw 4.4s ease-in-out infinite;animation-delay:calc(var(--i)*-.44s)}
+.wm::after{content:"";position:absolute;left:14%;right:14%;top:calc(100% + 10px);height:10px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 10'%3E%3Cpath d='M0 5C6 0 18 0 24 5S42 10 48 5' fill='none' stroke='%23FF6A13' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x 0 0/48px 10px;animation:wl 3.2s linear infinite}
+@keyframes wmw{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes wl{to{background-position:48px 0}}
+@keyframes breathe{50%{transform:scale(1.04)}}
+.sea{position:absolute;left:0;right:0;top:52vh;top:52svh;height:110vh;height:110svh;will-change:transform}
+.wave{position:absolute;left:0;width:calc(100% + 800px);height:100%;will-change:transform;animation:drift 16s linear infinite}
+.wave.w1{top:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 120' preserveAspectRatio='none'%3E%3Cpath d='M0 50 C100 10 300 10 400 50 S700 90 800 50 V120 H0Z' fill='%2300C2C7'/%3E%3C/svg%3E") repeat-x 0 0/800px 120px,linear-gradient(#00C2C7,#00C2C7) 0 118px/100% 100% no-repeat;animation-duration:22s;animation-direction:reverse}
+.wave.w2{top:5vh;top:5svh;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 120' preserveAspectRatio='none'%3E%3Cpath d='M0 60 C120 20 280 20 400 60 S680 100 800 60 V120 H0Z' fill='%230099E6'/%3E%3C/svg%3E") repeat-x 0 0/800px 120px,linear-gradient(#0099E6,#0099E6) 0 118px/100% 100% no-repeat;animation-duration:15s}
+.wave.w3{top:11vh;top:11svh;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 120' preserveAspectRatio='none'%3E%3Cpath d='M0 46 C90 8 310 8 400 46 S710 84 800 46 V120 H0Z' fill='%230D2B5C'/%3E%3Cpath d='M0 46 C90 8 310 8 400 46 S710 84 800 46' fill='none' stroke='%23fff' stroke-opacity='.7' stroke-width='4'/%3E%3C/svg%3E") repeat-x 0 0/800px 120px,linear-gradient(#0D2B5C,#0D2B5C) 0 118px/100% 100% no-repeat;animation-duration:11s}
+@keyframes drift{to{transform:translateX(-800px)}}
+.shark{position:absolute;z-index:1;left:50%;bottom:calc(100% - 13vh);bottom:calc(100% - 13svh);width:min(78vw,42vh);width:min(78vw,42svh);transform:translate(-50%,70%);opacity:0;transition:transform 1.2s cubic-bezier(.2,1.5,.4,1) .3s,opacity .4s .3s}
+.go .shark{transform:translate(-50%,0);opacity:1}
+.shark .bob{animation:bob 3.4s ease-in-out infinite;transform-origin:50% 100%}
+.shark img{width:100%;height:auto;filter:drop-shadow(0 14px 18px rgba(8,29,64,.35))}
+@keyframes bob{50%{transform:translateY(-2.5%) rotate(-2deg)}}
+.sea .w2,.sea .w3{z-index:2}.sea .w1{z-index:0}
+canvas.bubbles{position:absolute;left:0;right:0;top:11vh;top:11svh;bottom:0;width:100%;height:calc(100% - 11vh);height:calc(100% - 11svh);z-index:3;pointer-events:none}
+.splash{position:absolute;z-index:3;left:50%;top:9vh;top:9svh;width:60vw;max-width:420px;height:40px;transform:translateX(-50%);pointer-events:none}
+.splash i{position:absolute;bottom:0;width:10px;height:10px;border-radius:50%;background:#fff;opacity:0}
+.go .splash i{animation:drop 1s ease-out .9s both}
+.splash i:nth-child(1){left:20%;--x:-40px}.splash i:nth-child(2){left:35%;--x:-18px;animation-delay:.95s}.splash i:nth-child(3){left:62%;--x:20px}.splash i:nth-child(4){left:78%;--x:44px;animation-delay:1s}
+@keyframes drop{0%{opacity:0;transform:translate(0,0)}20%{opacity:1}100%{opacity:0;transform:translate(var(--x),-70px) scale(.5)}}
+.title{position:absolute;z-index:9;left:0;right:0;bottom:calc(9vh + 64px);bottom:calc(9svh + 64px);text-align:center;padding:0 var(--gut);pointer-events:none}
+.title h1{font-size:clamp(52px,15vw,150px);color:#fff}
+.title h1 span{display:inline-block;opacity:0;transform:translateY(40px) scale(.7)}
+.title h1 .sc{font-size:1.12em;line-height:.8}
+.title p{margin:12px auto 0;font-weight:600;font-size:16px;opacity:0;max-width:30ch}
+.hint{position:absolute;z-index:9;left:50%;bottom:16px;transform:translateX(-50%);font-size:12.5px;font-weight:700;letter-spacing:.04em;display:flex;align-items:center;gap:8px;transition:opacity .3s;background:rgba(13,43,92,.6);padding:6px 12px;border-radius:99px;white-space:nowrap}
+.hint i{width:18px;height:28px;border:2px solid currentColor;border-radius:12px;position:relative}
+.hint i::after{content:"";position:absolute;left:50%;top:5px;width:4px;height:6px;margin-left:-2px;border-radius:2px;background:currentColor;animation:hint 1.6s infinite}
+@keyframes hint{60%{transform:translateY(8px);opacity:0}}
+.ctas{position:absolute;z-index:9;left:0;right:0;bottom:4vh;bottom:4svh;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:0 var(--gut);opacity:0;pointer-events:none}
+.ctas.on{pointer-events:auto}
+.ctas .pill:not(.solid){color:#fff;background:rgba(255,255,255,.08)}
+@media (min-width:900px) and (min-aspect-ratio:1/1){
+  .wm{left:var(--gut);transform:none;width:min(30vw,420px)}
+  .sun{left:72%}
+  .shark{left:72%}
+  .title{left:var(--gut);right:auto;width:52%;text-align:left;bottom:22vh;bottom:22svh}
+  .title h1{font-size:clamp(60px,7.6vw,120px)}
+  .shark{width:min(40vw,56vh);width:min(40vw,56svh)}
+  .title p{margin-left:0;font-size:19px}
+  .ctas{left:var(--gut);right:auto;justify-content:flex-start;bottom:11vh;bottom:11svh;padding:0}
+  .splash{left:72%}
+}
+
+/* 2 · manifiesto */
+.mani{position:relative;overflow:hidden;padding:16vh var(--gut) 14vh;padding:16svh var(--gut) 14svh;background:radial-gradient(ellipse 70% 50% at 50% 110%,rgba(0,153,230,.28),transparent 70%)}
+.mani .orn{margin-bottom:22px}
+.mani p.big{font-size:clamp(30px,6.8vw,80px);max-width:18ch}
+.w{opacity:.16;transition:opacity .35s,color .35s}
+.w.on{opacity:1}.w.hot.on{color:var(--naranja)}.w.cool.on{color:var(--turquesa)}
+
+/* 3 · los más pedidos */
+.acts{position:relative;height:520vh;height:520svh}
+.stage2{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;perspective:1100px;background:radial-gradient(ellipse 60% 45% at 50% 100%,rgba(0,194,199,.22),transparent 70%)}
+.acts .head{position:absolute;top:calc(74px + 1vh);top:calc(74px + 1svh);left:var(--gut);right:var(--gut);display:flex;justify-content:space-between;align-items:flex-end;gap:16px;z-index:2}
+.acts .head h2{font-size:clamp(38px,8.8vw,100px)}
+.acts .head .meta{font-weight:600;font-size:13px;text-align:right;opacity:.75}
+.track{position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;gap:var(--cg,28px);padding:0 calc(50vw - min(39vw,210px));will-change:transform;transform-style:preserve-3d}
+.card{flex:none;width:min(78vw,420px);height:min(62vh,600px);height:min(62svh,600px);margin-top:14vh;margin-top:14svh;border-radius:24px;overflow:hidden;position:relative;display:flex;flex-direction:column;background:#fff;color:var(--marino);transform-style:preserve-3d;backface-visibility:hidden}
+.card .ph{flex:1 1 auto;min-height:0;position:relative}
+.card .ph img{width:100%;height:100%;object-fit:cover}
+.card .ph::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:34px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 34' preserveAspectRatio='none'%3E%3Cpath d='M0 18 C60 0 140 0 200 18 S340 36 400 18 V34 H0Z' fill='%23fff'/%3E%3C/svg%3E") 0 0/100% 100%}
+.card .num{position:absolute;top:14px;left:14px;z-index:2;font-weight:800;font-size:13px;letter-spacing:.06em;background:var(--naranja);color:#fff;padding:6px 12px;border-radius:99px}
+.card .say{position:absolute;top:12px;right:12px;z-index:2;max-width:62%;display:flex;gap:6px;align-items:flex-end}
+.card .say img{width:42px;height:42px;border-radius:50%;flex:none;background:#fff;box-shadow:0 0 0 2px var(--naranja)}
+.card .say span{background:#fff;color:var(--marino);font-weight:700;font-size:13px;line-height:1.2;padding:7px 10px;border-radius:12px 12px 3px 12px}
+.card .tx{padding:0 18px 18px;display:grid;gap:8px}
+.card h3{font-size:clamp(30px,8vw,46px);color:var(--marino)}
+.card .ds{font-size:14px;color:#3b4f73}
+.card .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.tagp{white-space:nowrap;font-weight:900;font-size:clamp(19px,5.2vw,24px);background:var(--marino);color:#fff;padding:5px 12px;border-radius:12px;transform:rotate(-3deg)}
+.tagp small{font-weight:600;font-size:11px;margin-right:5px;opacity:.85}
+.add2{white-space:nowrap;min-height:48px;border-radius:99px;border:0;background:var(--naranja);color:#fff;font-weight:800;padding:0 18px;display:inline-flex;align-items:center;gap:8px}
+.dots{position:absolute;left:0;right:0;bottom:3.5vh;bottom:3.5svh;display:flex;justify-content:center;gap:6px}
+.dots .dt{display:block;flex:none;width:28px;height:6px;border-radius:2px;background:rgba(255,255,255,.18);overflow:hidden}
+.dots b{display:block;height:100%;width:100%;background:var(--turquesa);transform:scaleX(0);transform-origin:left}
+
+/* 2b · picadito al momento */
+.bite{position:relative;height:220vh;height:220svh}
+.stage4{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#0b1830}
+.bimg{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;object-fit:cover;object-position:64% 50%;transform:scale(1.3);will-change:transform}
+.bshade{position:absolute;top:0;right:0;bottom:0;left:0;background:linear-gradient(180deg,rgba(8,29,64,.55) 0%,rgba(8,29,64,0) 30%,rgba(8,29,64,0) 45%,rgba(8,29,64,.9) 100%)}
+.btx{position:absolute;left:var(--gut);right:var(--gut);bottom:7vh;bottom:7svh;max-width:640px;opacity:0;transform:translateY(30px)}
+.btx h2{font-size:clamp(44px,11vw,110px);margin:8px 0 10px}
+.btx p{margin:0;font-size:16.5px;font-weight:500;max-width:34ch;opacity:.92}
+.btags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.btags span{font-size:12.5px;font-weight:700;padding:6px 11px;border-radius:99px;background:rgba(255,255,255,.14);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+
+/* 4 · frescura en video */
+.tide{position:relative;height:200vh;height:200svh}
+.tide .stage3{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;place-items:center;background:#0b1830}
+.vid{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;object-fit:cover;transform:scale(1.15);will-change:transform}
+.vshade{position:absolute;top:0;right:0;bottom:0;left:0;background:radial-gradient(ellipse at 50% 50%,rgba(8,29,64,.25),rgba(8,29,64,.75))}
+.tide .cap{position:absolute;left:0;right:0;bottom:5vh;bottom:5svh;text-align:center;font-size:12px;font-weight:600;opacity:.7;z-index:2}
+.tide h2{position:relative;z-index:2;text-align:center;font-size:clamp(46px,12vw,140px);color:#fff;text-shadow:0 6px 30px rgba(8,29,64,.6)}
+.tide h2 .sc{font-size:1.1em}
+.tide h2 span{display:block}
+
+/* 5 · a tu gusto */
+.hooks{padding:12vh var(--gut) 10vh;padding:12svh var(--gut) 10svh}
+.hooks>h2{font-size:clamp(40px,9.4vw,100px);margin:12px 0 28px;max-width:13ch}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));max-width:1200px}
+.box{position:relative;padding:22px;border-radius:22px;background:rgba(255,255,255,.06);border:1.5px solid rgba(191,230,255,.25);overflow:hidden}
+.box h3{font-size:clamp(26px,6vw,36px);margin-bottom:8px}
+.box p{margin:0 0 16px;opacity:.85;font-size:15px}
+.box .tag{display:inline-block;margin-bottom:10px;font-size:11px;font-weight:800;letter-spacing:.1em;background:rgba(0,194,199,.18);color:var(--turquesa);border-radius:99px;padding:4px 10px}
+.lbl{font-size:13px;font-weight:700;margin:2px 0 8px;opacity:.85}
+.seg{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:5px;background:rgba(8,29,64,.6);border-radius:16px;padding:5px;margin-bottom:14px}
+.seg button{border:0;background:transparent;border-radius:12px;min-height:46px;font-weight:700;font-size:13.5px;color:rgba(255,255,255,.75);padding:0 4px}
+.seg button[aria-pressed="true"]{background:#fff;color:var(--marino)}
+.chili{display:flex;gap:4px;justify-content:center;margin-top:-4px;margin-bottom:12px;min-height:26px}
+.chili i{width:22px;height:26px;background:var(--naranja);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 26'%3E%3Cpath d='M12 1c0 3 3 3 3 6 4 2 5 8 2 13-3 5-10 6-12 5 4-3 7-8 7-14-2-1-3-3-2-5 1 1 2 1 2-5z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 26'%3E%3Cpath d='M12 1c0 3 3 3 3 6 4 2 5 8 2 13-3 5-10 6-12 5 4-3 7-8 7-14-2-1-3-3-2-5 1 1 2 1 2-5z'/%3E%3C/svg%3E") center/contain no-repeat;animation:pop .35s var(--ez)}
+@keyframes pop{from{transform:scale(0)}}
+.switch{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px;width:100%;border:1.5px solid rgba(191,230,255,.3);border-radius:16px;background:transparent;padding:8px 12px 8px 16px;text-align:left;font-weight:700;font-size:14.5px}
+.switch small{display:block;font-weight:500;font-size:12.5px;opacity:.7}
+.switch b{flex:none;width:50px;height:30px;border-radius:15px;background:rgba(255,255,255,.2);position:relative;transition:background .25s}
+.switch b::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:transform .25s var(--ez)}
+.switch[aria-pressed="true"] b{background:var(--turquesa)}
+.switch[aria-pressed="true"] b::after{transform:translateX(20px)}
+.clock{font-weight:900;font-size:clamp(52px,14vw,80px);color:var(--turquesa);line-height:1;letter-spacing:-.02em}
+.live{display:inline-flex;align-items:center;gap:7px;font-weight:800;font-size:12.5px;margin-bottom:6px}
+.live i{width:9px;height:9px;border-radius:50%;background:var(--turquesa);animation:blink 1.2s infinite}
+.live.off i{background:var(--naranja);animation:none}
+@keyframes blink{50%{opacity:.3}}
+.bar2{height:8px;border-radius:4px;background:rgba(255,255,255,.14);overflow:hidden;margin:12px 0 14px}
+.bar2 b{display:block;height:100%;background:linear-gradient(90deg,var(--turquesa),var(--oceano),var(--naranja));transform-origin:left}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.cmp div{border-radius:14px;padding:10px 12px;background:rgba(8,29,64,.55)}
+.cmp small{display:block;font-size:12px;opacity:.75;font-weight:600}
+.cmp b{font-weight:900;font-size:22px}
+.cmp .act{background:#fff;color:var(--marino)}
+.place{padding:0;display:block}
+.place .ph{position:relative;height:clamp(180px,52vw,260px);overflow:hidden}
+.place .ph img{display:block;width:100%;height:100%;object-fit:cover}
+.place .go{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:52px;border-radius:16px;background:var(--oceano);color:#fff;font-weight:800;font-size:15px;text-decoration:none}
+.place .go svg{width:20px;height:20px;flex:none}
+.place .in{padding:16px 22px 22px}
+.place ul{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:8px;font-size:14.5px}
+.place li{display:flex;align-items:flex-start}
+.place li svg{flex:none;width:20px;height:20px;max-width:20px;max-height:20px;color:var(--turquesa);margin:1px 10px 0 0}
+
+/* 6 · carta (fondo claro: frescura) */
+.carta{position:relative;background:var(--papel);color:var(--marino);padding:12vh 0 10vh;padding:12svh 0 10svh}
+.carta::before{content:"";position:absolute;left:0;right:0;top:-1px;height:60px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 60' preserveAspectRatio='none'%3E%3Cpath d='M0 30 C100 0 300 0 400 30 S700 60 800 30 V0 H0Z' fill='%230D2B5C'/%3E%3C/svg%3E") repeat-x 0 0/800px 60px}
+.wrap{padding:0 var(--gut);max-width:960px;margin:0 auto}
+.carta h2{font-size:clamp(56px,13vw,130px);color:var(--marino)}
+.carta h2 .sc{font-size:1.1em}
+.lead{font-size:17px;font-weight:500;max-width:38ch;margin:12px 0 14px;color:#2b4168}
+.modebar{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.modebar .seg{--n:2;margin:0;background:#e3eef9;width:min(100%,340px)}
+.modebar .seg button{color:#3b4f73}
+.modebar .seg button[aria-pressed="true"]{background:var(--marino);color:#fff}
+.note{font-size:12.5px;font-weight:600;color:#5a6d8f}
+.tabs{position:sticky;top:0;z-index:20;background:rgba(244,250,255,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:72px 0 10px;border-bottom:2px solid var(--oceano);margin-top:24px}
+.tabs-in{display:flex;gap:6px;overflow-x:auto;padding:0 var(--gut);max-width:960px;margin:0 auto;scrollbar-width:none}
+.tabs-in::-webkit-scrollbar{display:none}
+.tab{flex:none;min-height:42px;padding:0 16px;border-radius:99px;border:1.5px solid rgba(13,43,92,.2);background:#fff;color:var(--marino);font-weight:700;font-size:14px}
+.tab[aria-selected="true"]{background:var(--naranja);border-color:var(--naranja);color:#fff}
+.sec{padding-top:36px;scroll-margin-top:136px}
+.sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;border-bottom:2px solid var(--marino);padding-bottom:8px}
+.sec-h h3{font-size:clamp(32px,7.4vw,64px);color:var(--marino)}
+.sec-h small{display:block;font-family:var(--h);text-transform:none;font-weight:600;font-size:13px;letter-spacing:0;color:#5a6d8f;margin-top:6px}
+.sec-h img{width:clamp(74px,16vw,116px);aspect-ratio:1;object-fit:cover;border-radius:50%;margin-bottom:-26px;border:3px solid var(--papel);box-shadow:0 0 0 2px var(--oceano)}
+.item{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;gap:12px;align-items:center;min-height:66px;padding:10px 0;border-bottom:1px solid rgba(13,43,92,.12)}
+.thumb{width:58px;height:58px;border-radius:14px;overflow:hidden;border:0;padding:0;background:#e3eef9;flex:none;position:relative}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb.no{background:#e9f2fb url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 14'%3E%3Cpath d='M2 9c5-6 10-6 15 0s10 6 15 0 10-6 15 0 10 6 15 0' fill='none' stroke='%230099E6' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") center/30px auto no-repeat;cursor:default}
+.item .nm{font-size:16.5px;font-weight:700;line-height:1.25}
+.item .ds{display:block;font-size:13px;font-weight:500;color:#5a6d8f;margin-top:2px}
+.item .pr{font-weight:900;font-size:19px;color:var(--marino);white-space:nowrap;text-align:right}
+.item .pr small{display:block;font-weight:600;font-size:11px;color:#7a8cab}
+.add{width:46px;height:46px;border-radius:50%;border:0;background:var(--oceano);color:#fff;display:grid;place-items:center;transition:transform .2s var(--ez)}
+.add:active{transform:scale(.88)}
+.add svg{width:20px;height:20px}
+.step{display:flex;align-items:center;gap:2px;background:var(--naranja);color:#fff;border-radius:99px;padding:2px}
+.step button{width:42px;height:42px;border-radius:50%;border:0;background:transparent;font-size:22px;font-weight:700;line-height:1}
+.step span{min-width:20px;text-align:center;font-weight:800}
+
+/* ubicación exacta */
+.loc{border:1.5px solid rgba(0,153,230,.35);background:#f1f8ff;border-radius:16px;padding:12px;display:grid;gap:8px}
+.locbtn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:52px;border-radius:14px;border:0;background:var(--oceano);color:#fff;font-weight:800;font-size:15px}
+.locbtn svg{width:20px;height:20px;flex:none}
+.locbtn[disabled]{opacity:.7}
+.loc small{display:block;font-size:12.5px;color:#5a6d8f}
+.locok{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;font-size:14px}
+.locok b{color:#1a8a4a}
+.locok a{color:var(--oceano);font-weight:700}
+.locx{flex:none;border:0;background:transparent;color:#c9353a;font-weight:700;font-size:13px;padding:6px}
+.locerr{font-size:13px;color:#a8541a;background:#fff3e8;border-radius:10px;padding:8px 10px}
+.fee{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;font-size:15px;padding-top:4px}
+.fee span:last-child{color:var(--naranja);font-weight:900}
+.sheet .seg.z{grid-template-columns:1fr 1fr}
+.sheet .seg.z button{font-size:12.5px;line-height:1.15;padding:6px 4px;min-height:52px}
+.sheet .seg.z small{display:block;font-weight:600;opacity:.75}
+
+/* visor de foto */
+.lb{position:fixed;top:0;right:0;bottom:0;left:0;z-index:80;display:grid;place-items:center;padding:16px;background:rgba(8,29,64,.82);opacity:0;pointer-events:none;transition:opacity .3s}
+.lb.show{opacity:1;pointer-events:auto}
+.lb-card{width:min(100%,520px);background:#fff;color:var(--marino);border-radius:24px;overflow:hidden;transform:scale(.94);transition:transform .35s var(--ez)}
+.lb.show .lb-card{transform:none}
+.lb-card img{display:block;width:100%;height:min(70vw,380px);object-fit:cover}
+.lb-in{padding:16px 18px 18px;display:grid;gap:10px}
+.lb-in h3{font-size:26px}
+.lb-in .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.lb-in .pr2{font-weight:900;font-size:22px}
+.lb-in small{font-size:12px;color:#5a6d8f}
+.lb-x{position:absolute;top:14px;right:14px;width:46px;height:46px;border-radius:50%;border:0;background:#fff;color:var(--marino);font-size:18px;z-index:2}
+
+/* 7 · cierre */
+.end{position:relative;overflow:hidden;padding:14vh var(--gut) 0;padding:14svh var(--gut) 0;background:linear-gradient(180deg,var(--marino),var(--marino2))}
+.end::before{content:"";position:absolute;left:0;right:0;top:-1px;height:60px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 60' preserveAspectRatio='none'%3E%3Cpath d='M0 30 C100 0 300 0 400 30 S700 60 800 30 V0 H0Z' fill='%23F4FAFF'/%3E%3C/svg%3E") repeat-x 0 0/800px 60px}
+.end .in{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 24px;align-items:end;max-width:1100px;margin:0 auto}
+.end .logo-end{width:min(64vw,300px);margin-bottom:18px}
+.end h2{font-size:clamp(46px,11vw,120px);max-width:10ch}
+.end h2 .sc{font-size:1.1em}
+.end .acts2{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+.end .acts2 .pill:not(.solid){color:#fff}
+.end .shk{width:clamp(170px,32vw,320px)}
+.end .shk img{width:100%;height:auto;filter:drop-shadow(0 16px 24px rgba(0,0,0,.45))}
+.end .shk.go{animation:jump .9s var(--ez) both,bob 3.4s ease-in-out .9s infinite}
+@keyframes jump{0%{transform:translateY(30%) scale(.8);opacity:0}60%{transform:translateY(-5%) scale(1.04);opacity:1}100%{transform:none}}
+@media (max-width:640px){.end .in{grid-template-columns:1fr}.end .shk{justify-self:end;margin-top:8px}}
+.info{position:relative;z-index:1;max-width:1100px;margin:34px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px;border-top:1px solid rgba(191,230,255,.2);padding-top:22px;font-size:14.5px}
+.info b{display:block;font-size:12px;letter-spacing:.1em;color:var(--turquesa);margin-bottom:2px}
+.fine{position:relative;z-index:1;font-size:12.5px;opacity:.6;max-width:1100px;margin:26px auto 0;padding:0 0 calc(30px + env(safe-area-inset-bottom,0px))}
+body.has-bar .fine{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
+
+/* pedido */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px var(--gut) calc(12px + env(safe-area-inset-bottom,0px));transform:translateY(110%);transition:transform .5s var(--ez);pointer-events:none}
+.bar.show{transform:none}
+.bar button{pointer-events:auto;width:100%;max-width:560px;margin:0 auto;min-height:60px;border:0;border-radius:18px;background:var(--naranja);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 20px;font-weight:800;font-size:16.5px;box-shadow:0 14px 40px rgba(8,29,64,.45)}
+.bar .count{display:inline-grid;place-items:center;min-width:28px;height:28px;border-radius:14px;background:var(--marino);color:#fff;font-size:14px;margin-right:10px;padding:0 6px}
+.scrim{position:fixed;top:0;right:0;bottom:0;left:0;z-index:60;background:rgba(8,29,64,.6);opacity:0;pointer-events:none;transition:opacity .35s}
+.scrim.show{opacity:1;pointer-events:auto}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:61;max-height:92vh;max-height:92svh;overflow-y:auto;background:#fff;color:var(--marino);border-top:4px solid var(--oceano);border-radius:26px 26px 0 0;transform:translateY(105%);transition:transform .5s var(--ez);overscroll-behavior:contain}
+.sheet.show{transform:none}
+.sheet-in{max-width:560px;margin:0 auto;padding:10px 20px calc(24px + env(safe-area-inset-bottom,0px));display:grid;gap:16px}
+.grab{width:42px;height:5px;border-radius:3px;background:rgba(13,43,92,.2);justify-self:center}
+.sheet-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.sheet-top h2{font-weight:900;text-transform:uppercase;font-size:26px;margin:0;line-height:1}
+.sheet-top .who{display:flex;align-items:center;gap:10px}
+.sheet-top .who img{width:46px;height:46px;border-radius:50%;box-shadow:0 0 0 2px var(--naranja)}
+.close{width:44px;height:44px;border-radius:50%;border:0;background:#e9f2fb;font-size:17px;color:var(--marino)}
+.lines{display:grid}
+.line{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(13,43,92,.1)}
+.line b{font-weight:700}.line small{grid-column:1;color:#5a6d8f;font-size:13px}
+.line .step{grid-column:2;grid-row:1/3}
+.chip{font-size:14px;padding:12px 14px;border-radius:14px;border:1.5px dashed var(--oceano);background:#f1f8ff}
+.chip b{color:var(--naranja)}
+.chip a{color:var(--oceano);font-weight:700}
+.field{display:grid;gap:6px}
+.field label,.field .lbl2{font-size:14px;font-weight:700}
+.field label small{font-weight:500;opacity:.6}
+.field input,.field textarea{width:100%;background:#f4f8fd;border:1.5px solid rgba(13,43,92,.16);border-radius:14px;color:var(--marino);font:16px var(--h);padding:13px 14px}
+.field textarea{min-height:70px;resize:vertical}
+.field input::placeholder,.field textarea::placeholder{color:rgba(13,43,92,.4)}
+.field.err input{border-color:#e5484d}
+.field .msg{font-size:13px;color:#c9353a}
+.sheet .seg{background:#e9f2fb;margin:0}
+.sheet .seg button{color:#3b4f73}
+.sheet .seg button[aria-pressed="true"]{background:var(--marino);color:#fff}
+.total{display:flex;justify-content:space-between;align-items:baseline;font-weight:900;font-size:22px;text-transform:uppercase}
+.total span:last-child{color:var(--naranja)}
+.send{min-height:60px;border-radius:18px;background:#1fae5b;color:#fff;font-weight:800;font-size:16.5px;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none}
+.send svg{width:22px;height:22px}
+.finep{font-size:12.5px;color:#5a6d8f;text-align:center;margin:0}
+.empty{text-align:center;color:#5a6d8f;padding:20px 0}
+.toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:70;background:#fff;color:var(--marino);font-weight:800;font-size:14.5px;padding:11px 18px;border-radius:99px;box-shadow:0 10px 30px rgba(8,29,64,.35);white-space:nowrap;animation:toast 1.6s var(--ez) both}
+@keyframes toast{0%{opacity:0;transform:translate(-50%,14px)}14%,80%{opacity:1;transform:translate(-50%,0)}100%{opacity:0;transform:translate(-50%,-8px)}}
+
+
+/* delivery: pasos */
+.steps3{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:s}
+.steps3 li{display:flex;gap:12px;align-items:center;font-weight:600;font-size:14.5px;counter-increment:s}
+.steps3 li::before{content:counter(s);flex:none;width:30px;height:30px;border-radius:50%;background:var(--naranja);display:grid;place-items:center;font-weight:900;color:#fff}
+.clock[hidden],.bar2[hidden],.tabs[hidden],.item[hidden],.sec[hidden]{display:none}
+/* antojos */
+.carta .kick{color:#2b4168;display:block;margin-top:18px}
+.crave{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.cv{position:relative;min-height:96px;border-radius:18px;border:0;overflow:hidden;text-align:left;padding:12px 14px;display:flex;align-items:flex-end;color:#fff;font-weight:800;font-size:16px;line-height:1.12;background:var(--marino);box-shadow:0 4px 0 rgba(13,43,92,.2)}
+.cv img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ez)}
+.cv::after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;background:linear-gradient(0deg,rgba(8,29,64,.88),rgba(8,29,64,.12) 75%)}
+.cv span{position:relative;z-index:1}
+.cv:active img{transform:scale(1.06)}
+.cv[aria-pressed="true"]{box-shadow:0 0 0 3px var(--naranja),0 4px 0 rgba(13,43,92,.2)}
+.cv.all{grid-column:1/-1;min-height:62px;justify-content:center;align-items:center;background:var(--naranja);font-size:17px}
+.cv.all::after{display:none}
+.cv.all[aria-pressed="true"]{box-shadow:0 0 0 3px var(--marino),0 4px 0 rgba(13,43,92,.2)}
+.fbw{position:sticky;top:0;z-index:20;background:rgba(244,250,255,.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:70px var(--gut) 10px;border-bottom:2px solid var(--oceano)}
+.fbw[hidden]{display:none}
+.fbar{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:960px;margin:0 auto;padding:10px 14px;border-radius:16px;background:#fff;border:1.5px solid rgba(13,43,92,.15);font-size:14.5px}
+.fbar b{font-weight:800}
+.fbar button{flex:none;min-height:44px;padding:0 16px;border-radius:99px;border:0;background:var(--naranja);color:#fff;font-weight:800;font-size:14px}
+.tab{min-height:50px!important;padding:0 20px!important;font-size:15.5px!important;font-weight:800!important;box-shadow:0 3px 0 rgba(13,43,92,.16)}
+.tab[aria-selected="true"]{box-shadow:0 3px 0 rgba(150,60,0,.35)}
+/* historia */
+.historia{position:relative;overflow:hidden;padding:12vh var(--gut) 10vh;padding:12svh var(--gut) 10svh;background:linear-gradient(180deg,var(--marino),var(--marino2))}
+.historia::before{content:"";position:absolute;left:0;right:0;top:-1px;height:60px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 60' preserveAspectRatio='none'%3E%3Cpath d='M0 30 C100 0 300 0 400 30 S700 60 800 30 V0 H0Z' fill='%23F4FAFF'/%3E%3C/svg%3E") repeat-x 0 0/800px 60px}
+.historia .in{position:relative;z-index:1;max-width:760px;margin:0 auto}
+.historia h2{font-size:clamp(46px,11vw,100px);margin:14px 0 24px}
+.historia .hf{margin:0 0 24px;border-radius:22px;overflow:hidden;border:3px solid var(--naranja);box-shadow:0 18px 40px rgba(0,0,0,.35);transform:rotate(-1.2deg)}
+.historia .hf img{width:100%;height:auto}
+.historia p{font-size:17px;font-weight:500;line-height:1.6;margin:0;max-width:60ch;opacity:.95}
+.historia+.end{padding-top:6vh;padding-top:6svh}
+.historia+.end::before{display:none}
+
+
+/* v3: clavado, peces, apariciones */
+.dive{will-change:transform;transform-origin:50% 60%}
+.sp2 .splash i{animation:drop2 .9s ease-out both}
+.sp2 .splash i:nth-child(2){animation-delay:.06s}.sp2 .splash i:nth-child(4){animation-delay:.12s}
+@keyframes drop2{0%{opacity:0;transform:translate(0,0)}20%{opacity:1}100%{opacity:0;transform:translate(var(--x),-80px) scale(.5)}}
+.fishes{position:absolute;left:0;right:0;top:24vh;top:24svh;height:60vh;height:60svh;z-index:3;pointer-events:none;color:var(--celeste)}
+.fishes svg{position:absolute;left:0;width:34px;height:17px;opacity:.32;animation:swim 19s linear infinite}
+.fishes svg:nth-child(1){top:8%}
+.fishes svg:nth-child(2){top:34%;width:22px;height:11px;animation-duration:26s;animation-delay:-8s;opacity:.22}
+.fishes svg:nth-child(3){top:60%;width:44px;height:22px;animation-duration:15s;animation-delay:-4s;color:var(--turquesa)}
+.fishes svg:nth-child(4){top:82%;width:26px;height:13px;animation-duration:23s;animation-delay:-15s;opacity:.2}
+@keyframes swim{0%{transform:translate(112vw,0)}50%{transform:translate(46vw,-10px)}100%{transform:translate(-20vw,0)}}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .75s var(--ez);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.historia .hf.rv{transform:translateY(28px) rotate(3deg)}
+.historia .hf.rv.in{transform:rotate(-1.2deg)}
+.pill,.add2,.cv,.tab,.send,.locbtn{transition:transform .18s var(--ez)}
+.pill:active,.add2:active,.cv:active,.tab:active,.send:active,.locbtn:active{transform:scale(.95)}
+.bump{animation:bump .45s var(--ez)}
+@keyframes bump{35%{transform:scale(1.45)}}
+.bar.show button.bump2{animation:bump2 .45s var(--ez)}
+@keyframes bump2{35%{transform:scale(1.035)}}
+.ctas.on .pill.solid{animation:glow 2.4s ease-in-out infinite}
+@keyframes glow{50%{box-shadow:0 0 0 10px rgba(255,106,19,.18)}}
+.box .steps3 li::before{animation:blink 2.4s ease-in-out infinite;animation-delay:calc(var(--k,0)*.4s)}
+.rm .rv{opacity:1;transform:none}.rm .fishes{display:none}
+
+
+/* v4: tiburón al frente, centrado, salta y se sumerge */
+.shark2{position:absolute;z-index:6;left:50%;bottom:37vh;bottom:37svh;width:min(80vw,40vh);width:min(80vw,40svh);margin-left:calc(min(80vw,40svh)/-2);pointer-events:none}
+.shark2 img{width:100%;height:auto;filter:drop-shadow(0 14px 18px rgba(8,29,64,.35))}
+.shark2 .dive{will-change:transform,filter,opacity;transform-origin:50% 55%}
+.shark2 .in2{transform:translateY(45%) scale(.75);opacity:0;transition:transform 1.1s cubic-bezier(.2,1.5,.4,1) .2s,opacity .4s .2s}
+.go .shark2 .in2{transform:none;opacity:1}
+.wm{top:clamp(64px,9svh,96px)}
+/* v4: carrusel deslizable con el dedo */
+.acts{height:auto!important}
+.stage2{position:relative!important;height:auto!important;overflow:visible!important;perspective:none!important;padding:104px 0 44px}
+.acts .head{position:relative!important;top:auto!important;left:auto!important;right:auto!important;padding:0 var(--gut);margin-bottom:14px}
+.track{position:relative!important;top:auto;bottom:auto;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain;padding:14px calc(50vw - min(39vw,210px)) 26px!important;transform:none!important;transform-style:flat!important;align-items:stretch}
+.track::-webkit-scrollbar{display:none}
+.card{scroll-snap-align:center;scroll-snap-stop:always;margin-top:0!important;height:min(60vh,560px);height:min(60svh,560px);transition:box-shadow .3s}
+.dots{position:relative!important;bottom:auto!important;margin-top:4px}
+.dots .dt{border:0;padding:0;cursor:pointer;min-height:0}
+.dots{padding:10px 0}
+.swipe{display:flex;align-items:center;justify-content:center;gap:8px;font-size:12.5px;font-weight:700;opacity:.7;margin-top:12px}
+.swipe svg{width:22px;height:22px;animation:sw 1.8s ease-in-out infinite}
+@keyframes sw{50%{transform:translateX(-8px)}}
+
+
+/* v5: logo en capas, solo el tiburón se mueve */
+.emb{--W:min(94vw,54vh);--W:min(94vw,54svh);position:absolute;z-index:4;left:50%;width:var(--W);height:calc(var(--W)*.75);margin-left:calc(var(--W)/-2);top:calc(11vh + 46px - var(--W)*.75);top:calc(11svh + 46px - var(--W)*.75);will-change:opacity}
+.emb .ly{position:absolute;top:0;left:0;width:100%;height:100%;overflow:visible}
+.emb .ly.wide{left:calc(50% - 50vw);width:100vw}
+.sea canvas.bubbles,.sea .fishes{z-index:5}
+.emb .sunL .rays{transform-origin:200px 172px;animation:spin 90s linear infinite}
+.shk3{position:absolute;left:24%;width:52%;bottom:9%}
+.shk3 img{width:100%;height:auto;filter:drop-shadow(0 10px 14px rgba(8,29,64,.3))}
+.shk3 .dive{will-change:transform,filter,opacity;transform-origin:45% 60%}
+.shk3 .in2{transform:translateY(62%) rotate(8deg);transition:transform 1.2s cubic-bezier(.2,1.45,.4,1) .25s}
+.go .shk3 .in2{transform:none}
+.shk3 .bob{animation:bob3 3.6s ease-in-out infinite;transform-origin:50% 90%}
+@keyframes bob3{50%{transform:translateY(-3%) rotate(-2.5deg)}}
+.emb .splash{left:20%;right:20%;width:auto;max-width:none;top:auto;bottom:22%;transform:none}
+.rm .shk3 .in2{transition:none;transform:none}
+
+/* movimiento reducido */
+.rm .hero{height:auto}
+.rm .stage{position:relative;min-height:100vh;min-height:100svh}
+.rm .sea{transform:translateY(-26vh)!important;transform:translateY(-26svh)!important}
+.rm .wm i,.rm .wm::after,.rm .sun .disc,.rm .wave,.rm .sun .rays,.rm .gulls svg,.rm .bob,.rm .end .shk{animation:none!important}
+.rm .shark{transition:none}
+.rm .title h1 span,.rm .title p{opacity:1!important;transform:none!important}
+.rm .ctas{opacity:1!important;pointer-events:auto}
+.rm canvas.bubbles,.rm .splash{display:none}
+.rm .acts{height:auto}
+.rm .stage2{position:relative;height:auto;perspective:none;padding:130px var(--gut) 60px}
+.rm .acts .head{position:static;margin-bottom:40px}
+.rm .track{position:static;flex-direction:column;gap:40px;padding:0;transform:none!important}
+.rm .card{margin-top:0;width:100%;max-width:520px;transform:none!important}
+.rm .dots,.rm .hint{display:none}
+.rm .bite,.rm .tide{height:auto}.rm .stage4,.rm .tide .stage3{position:relative;height:80vh;height:80svh}
+.rm .bimg,.rm .vid{transform:none}.rm .btx{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Principal">
+  <a class="iso" href="#inicio" aria-label="La Ramadita de Amy, ir al inicio"><img src="assets/icono.webp" alt=""></a>
+  <div class="r2">
+    <a class="pill" href="#carta">Carta</a>
+    <button class="pill" id="cartTop" type="button" aria-label="Ver pedido">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+      <span class="badge" id="badge" hidden>0</span>
+    </button>
+  </div>
+</nav>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="ola" viewBox="0 0 64 14"><path d="M2 9c5-6 10-6 15 0s10 6 15 0 10-6 15 0 10 6 15 0" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+  <symbol id="gull" viewBox="0 0 34 14"><path d="M1 8c5-6 10-6 16 1 6-7 11-7 16-1" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="fish" viewBox="0 0 40 20"><path d="M2 10c6-8 18-9 26-2l8-6v16l-8-6C20 19 8 18 2 10z" fill="currentColor"/></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 1-13.4 7.8L3 21l1.3-4.4A9 9 0 1 1 21 12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</defs></svg>
+
+<main>
+  <section class="hero" id="inicio" data-pin="hero">
+    <div class="stage" id="stage">
+      <div class="gulls" aria-hidden="true"><svg><use href="#gull"/></svg><svg><use href="#gull"/></svg><svg><use href="#gull"/></svg></div>
+      <div class="wm" id="wm" role="img" aria-label="La Ramadita de Amy · Pescados y mariscos"></div>
+      <div class="sea" id="sea">
+        <div class="wave w1" aria-hidden="true"></div>
+        <div class="wave w2" aria-hidden="true"></div>
+        <div class="wave w3" aria-hidden="true"></div>
+        <canvas class="bubbles" aria-hidden="true"></canvas>
+        <div class="emb" id="emb"><svg class="ly sunL" viewBox="0 0 400 300" aria-hidden="true"><defs><radialGradient id="sg" cx="45%" cy="40%" r="65%"><stop offset="0" stop-color="#FFB347"/><stop offset=".6" stop-color="#FF8A00"/><stop offset="1" stop-color="#F06A0A"/></radialGradient></defs><g class="rays"><path d="M194.6 86.2L200.0 20.0L205.4 86.2Z" fill="#FF7A00"/><path d="M212.3 86.9L225.0 46.5L221.2 88.6Z" fill="#FF9B26"/><path d="M227.9 90.6L258.2 31.6L237.8 94.8Z" fill="#FF7A00"/><path d="M244.0 98.1L271.1 65.6L251.5 103.1Z" fill="#FF9B26"/><path d="M256.9 107.5L307.5 64.5L264.5 115.1Z" fill="#FF7A00"/><path d="M268.9 120.5L306.4 100.9L273.9 128.0Z" fill="#FF9B26"/><path d="M277.2 134.2L340.4 113.8L281.4 144.1Z" fill="#FF7A00"/><path d="M283.4 150.8L325.5 147.0L285.1 159.7Z" fill="#FF9B26"/><path d="M285.8 166.6L352.0 172.0L285.8 177.4Z" fill="#FF7A00"/><path d="M285.1 184.3L325.5 197.0L283.4 193.2Z" fill="#FF9B26"/><path d="M281.4 199.9L340.4 230.2L277.2 209.8Z" fill="#FF7A00"/><path d="M273.9 216.0L306.4 243.1L268.9 223.5Z" fill="#FF9B26"/><path d="M264.5 228.9L307.5 279.5L256.9 236.5Z" fill="#FF7A00"/><path d="M251.5 240.9L271.1 278.4L244.0 245.9Z" fill="#FF9B26"/><path d="M237.8 249.2L258.2 312.4L227.9 253.4Z" fill="#FF7A00"/><path d="M221.2 255.4L225.0 297.5L212.3 257.1Z" fill="#FF9B26"/><path d="M205.4 257.8L200.0 324.0L194.6 257.8Z" fill="#FF7A00"/><path d="M187.7 257.1L175.0 297.5L178.8 255.4Z" fill="#FF9B26"/><path d="M172.1 253.4L141.8 312.4L162.2 249.2Z" fill="#FF7A00"/><path d="M156.0 245.9L128.9 278.4L148.5 240.9Z" fill="#FF9B26"/><path d="M143.1 236.5L92.5 279.5L135.5 228.9Z" fill="#FF7A00"/><path d="M131.1 223.5L93.6 243.1L126.1 216.0Z" fill="#FF9B26"/><path d="M122.8 209.8L59.6 230.2L118.6 199.9Z" fill="#FF7A00"/><path d="M116.6 193.2L74.5 197.0L114.9 184.3Z" fill="#FF9B26"/><path d="M114.2 177.4L48.0 172.0L114.2 166.6Z" fill="#FF7A00"/><path d="M114.9 159.7L74.5 147.0L116.6 150.8Z" fill="#FF9B26"/><path d="M118.6 144.1L59.6 113.8L122.8 134.2Z" fill="#FF7A00"/><path d="M126.1 128.0L93.6 100.9L131.1 120.5Z" fill="#FF9B26"/><path d="M135.5 115.1L92.5 64.5L143.1 107.5Z" fill="#FF7A00"/><path d="M148.5 103.1L128.9 65.6L156.0 98.1Z" fill="#FF9B26"/><path d="M162.2 94.8L141.8 31.6L172.1 90.6Z" fill="#FF7A00"/><path d="M178.8 88.6L175.0 46.5L187.7 86.9Z" fill="#FF9B26"/></g><circle cx="200" cy="172" r="90" fill="#FFF3E2"/><circle cx="200" cy="172" r="84" fill="url(#sg)"/></svg><svg class="ly wide" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true"><path d="M0 238C70 198 140 188 210 204C270 218 330 204 400 168V320H0Z" fill="#0099E6"/><path vector-effect="non-scaling-stroke" d="M0 238C70 198 140 188 210 204C270 218 330 204 400 168" fill="none" stroke="#BFE6FF" stroke-width="3" stroke-opacity=".7"/></svg><div class="shk3"><div class="dive" id="dive"><div class="in2"><div class="bob"><img src="assets/shark.webp" alt="El tiburón cocinero de La Ramadita de Amy" width="720" height="994"></div></div></div></div><svg class="ly wide frontL" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="fg" gradientUnits="userSpaceOnUse" x1="0" y1="200" x2="0" y2="460"><stop offset="0" stop-color="#0D2B5C"/><stop offset=".55" stop-color="#0D2B5C"/><stop offset="1" stop-color="#0D2B5C" stop-opacity=".55"/></linearGradient></defs><path d="M0 262C60 226 120 214 180 232C230 247 290 250 340 226C362 215 382 206 400 200V1200H0Z" fill="url(#fg)"/><path vector-effect="non-scaling-stroke" d="M0 262C60 226 120 214 180 232C230 247 290 250 340 226C362 215 382 206 400 200" fill="none" stroke="#fff" stroke-width="4" stroke-opacity=".75" stroke-linecap="round"/><path d="M28 238C88 198 150 192 205 214C252 232 302 230 362 194C334 226 292 242 240 238C190 234 142 210 28 238Z" fill="#1F57C3"/><path vector-effect="non-scaling-stroke" d="M60 228C110 206 160 204 200 218" fill="none" stroke="#fff" stroke-width="2.5" stroke-opacity=".6" stroke-linecap="round"/></svg><div class="splash" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
+        <div class="fishes" aria-hidden="true"><svg><use href="#fish"/></svg><svg><use href="#fish"/></svg><svg><use href="#fish"/></svg><svg><use href="#fish"/></svg></div>
+      </div>
+      <div class="title" id="title">
+        <h1 class="big"><span>Del</span> <span>mar</span> <span>a tu</span> <span class="sc">mesa</span></h1>
+        <p id="titleP">Frescura que se siente, calidad que se disfruta.</p>
+      </div>
+      <div class="ctas" id="ctas"><a class="pill solid" id="waHero" href="#carta"><svg aria-hidden="true"><use href="#wa"/></svg>Pide por WhatsApp</a></div>
+      <div class="hint" id="hint"><i></i>Baja y sube la marea</div>
+    </div>
+  </section>
+
+  <section class="bite" data-pin="bite" aria-label="Picadito al momento">
+    <div class="stage4">
+      <img class="bimg" src="assets/fotos/llevar.webp" alt="Ceviche fresco con cebolla, ají, camote y canchita en un envase para llevar con su cuchara" width="1000" height="667">
+      <div class="bshade"></div>
+      <div class="btx">
+        <span class="kick">A DOMICILIO</span>
+        <h2 class="big">Picadito al <span class="sc">momento</span></h2>
+        <p>Pescado del día, limón recién exprimido y tu cuchara lista. Así llega a tu casa.</p>
+        <div class="btags"><span>Pescado del día</span><span>Limón al momento</span><span>Leche de tigre aparte</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mani" aria-label="Nuestra historia">
+    <div class="orn"><svg><use href="#ola"/></svg></div>
+    <p class="big" id="manifest">Desde 2014, en La Esperanza, servimos pescados y mariscos frescos con buena sazón y atención de casa. Del mar a tu mesa, con cercanía.</p>
+  </section>
+
+  <section class="acts" id="favoritos" aria-label="Los más pedidos">
+    <div class="stage2">
+      <div class="head"><h2 class="big">Los más<br><span class="sc">pedidos</span></h2><div class="meta" id="actsMeta"></div></div>
+      <div class="track" id="track"></div>
+      <div class="dots" id="dots"></div>
+      <div class="swipe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>Desliza para ver más</div>
+    </div>
+  </section>
+
+  <section class="tide" data-pin="tide" aria-label="Frescura que se siente">
+    <div class="stage3">
+      <video class="vid" id="vid" muted loop playsinline preload="metadata" poster="assets/fotos/fresco-poster.webp" aria-hidden="true"><source src="assets/fotos/fresco.mp4" type="video/mp4"></video>
+      <div class="vshade"></div>
+      <h2 class="big"><span>Frescura</span><span>que se</span><span class="sc">siente</span></h2>
+    </div>
+  </section>
+
+  <section class="hooks" aria-label="Pídelo a tu gusto">
+    <div class="orn"><svg><use href="#ola"/></svg></div>
+    <h2 class="big">Pídelo <span class="sc">a tu gusto</span></h2>
+    <div class="grid">
+      <div class="box">
+        <span class="tag">PARA TUS CEVICHES</span>
+        <h3 class="big">¿Cómo lo quieres?</h3>
+        <p>Lo que marques aquí va escrito en tu pedido.</p>
+        <div class="lbl">Picante</div>
+        <div class="seg" id="picSeg" role="group" aria-label="Nivel de picante"></div>
+        <div class="chili" id="chili" aria-hidden="true"></div>
+        <button class="switch" type="button" id="lecheSw" aria-pressed="false"><span>Leche de tigre aparte<small>Así llega más fresquito a tu casa</small></span><b aria-hidden="true"></b></button>
+      </div>
+      <div class="box">
+        <span class="tag">ATENDEMOS TODOS LOS DÍAS</span>
+        <div class="live" id="live"><i></i><span id="liveTx">ABIERTO AHORA</span></div>
+        <h3 class="big" id="clockH">Atendemos desde las 8:30 a. m.</h3>
+        <div class="clock" id="clock" hidden>--:--</div>
+        <div class="bar2" id="barWrap" hidden><b id="dayBar"></b></div>
+        <p id="clockP">Pide ahora y te lo llevamos hasta la puerta de tu casa.</p>
+        <a class="pill solid" id="clockBtn" href="#carta">Armar mi pedido</a>
+      </div>
+      <div class="box">
+        <span class="tag">DELIVERY</span>
+        <h3 class="big">De nuestra ramadita <span class="sc">hasta la puerta de tu casa</span></h3>
+        <p>Armas tu pedido en la carta y nos lo envías por WhatsApp. El costo del delivery se calcula con tu ubicación.</p>
+        <ol class="steps3"><li>Elige lo que se te antoje en la carta.</li><li>Envíalo por WhatsApp y te confirmamos.</li><li>Te lo llevamos hasta la puerta de tu casa.</li></ol>
+      </div>
+      <div class="box place">
+        <div class="ph"><img src="assets/local.webp" alt="Fachada de La Ramadita de Amy con murales marinos y la pizarra de Ceviches, Conchas y Chaufas" loading="lazy" width="1170" height="770"></div>
+        <div class="in">
+          <h3 class="big">Nuestra ramadita</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Av. Gran Chimú 1806, La Esperanza, Trujillo</li>
+            <li><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="#wa"/></svg>956 052 731</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Lunes a domingo, 8:30 a. m. a 3:00 p. m.</li>
+          </ul>
+          <a class="go" href="https://www.google.com/maps/search/?api=1&amp;query=Av.+Gran+Chim%C3%BA+1806+La+Esperanza+Trujillo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Cómo llegar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="carta" id="carta">
+    <div class="wrap">
+      <div class="orn" style="margin-bottom:18px"><svg><use href="#ola"/></svg></div>
+      <h2 class="big">Nuestra <span class="sc">carta</span></h2>
+      <p class="lead">Elige lo que se te antoje. De nuestra ramadita hasta la puerta de tu casa.</p>
+      <span class="kick">¿QUÉ SE TE ANTOJA?</span>
+      <div class="crave" id="crave"></div>
+      <div id="menuTop"></div>
+    </div>
+    <div class="fbw" id="fbw" hidden><div class="fbar" id="fbar"><span>Mostrando: <b id="fbarT"></b></span><button type="button" data-fil="all">Ver toda la carta</button></div></div>
+    <div class="tabs"><div class="tabs-in" id="tabs" role="tablist" aria-label="Categorías de la carta"></div></div>
+    <div class="wrap" id="menu"></div>
+  </section>
+
+  <section class="historia" id="historia" aria-label="Nuestra historia">
+    <div class="in">
+      <div class="orn"><svg><use href="#ola"/></svg></div>
+      <h2 class="big">Nuestra <span class="sc">historia</span></h2>
+      <figure class="hf"><img src="assets/equipo.webp" alt="El equipo de La Ramadita de Amy frente al mural del local" loading="lazy" width="906" height="456"></figure>
+      <p>La Ramadita de Amy nació en 2014 con un sueño sencillo pero poderoso: ofrecer comida marina con alma, sabor y corazón. Desde una pequeña cocina con grandes sueños, nos propusimos crear un espacio donde cada plato hable por sí solo y cada cliente se sienta como en casa. Con esfuerzo, dedicación y una sazón que conquiste paladares, fuimos creciendo y marcando presencia en la escena culinaria local. Hoy seguimos fieles a nuestra esencia: brindar calidad, atención cercana y ese sabor auténtico que nos representa. Porque más que una cevichería, somos una familia que cocina con pasión para todos.</p>
+    </div>
+  </section>
+
+  <footer class="end" id="fin">
+    <div class="in">
+      <div>
+        <img class="logo-end" src="assets/wordmark-w.webp" alt="La Ramadita de Amy · Pescados y mariscos" loading="lazy">
+        <h2 class="big">Del mar a tu <span class="sc">mesa</span></h2>
+        <div class="acts2">
+          <a class="pill solid" id="waEnd" href="#carta"><svg aria-hidden="true"><use href="#wa"/></svg>Pide por WhatsApp</a>
+        </div>
+      </div>
+      <div class="shk" id="shk"><img src="assets/tiburon.webp" alt="" loading="lazy" width="483" height="420"></div>
+    </div>
+    <div class="info">
+      <div><b>DÓNDE</b>Av. Gran Chimú 1806, La Esperanza, Trujillo</div>
+      <div><b>PEDIDOS</b>WhatsApp 956 052 731</div>
+      <div><b>HORARIO</b>Lunes a domingo, 8:30 a. m. a 3:00 p. m.</div>
+    </div>
+    <p class="fine">La Ramadita de Amy · Pescados y mariscos desde 2014. Precios de la carta para delivery. Fotos de platos referenciales de <a href="https://www.pexels.com/license/" target="_blank" rel="noopener" style="color:var(--turquesa)">Pexels</a> (licencia libre); se reemplazarán por fotos reales de los platos del local. La foto de la fachada es una imagen referencial.</p>
+  </footer>
+</main>
+
+<div class="bar" id="bar"><button type="button" id="openSheet"><span><span class="count" id="barCount">0</span>Ver pedido</span><span id="barTot">S/ 0.00</span></button></div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto del plato"><div class="lb-card" style="position:relative"><button class="lb-x" type="button" id="lbX" aria-label="Cerrar">✕</button><img id="lbImg" alt=""><div class="lb-in"><h3 class="big" id="lbName"></h3><div class="row"><span><span class="pr2" id="lbPr"></span><br><small id="lbTag"></small></span><button class="add2" type="button" id="lbAdd">Agregar <span aria-hidden="true">+</span></button></div><small>Foto referencial del plato.</small></div></div></div>
+<div class="scrim" id="scrim"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle"><div class="sheet-in" id="sheetIn"></div></div>
+
+<script>
+(function(){
+'use strict';
+var RM=/[?&]calma=1/.test(location.search);
+if(RM)document.documentElement.classList.add('rm');
+var $=function(s){return document.querySelector(s)},$$=function(s){return [].slice.call(document.querySelectorAll(s))};
+var clamp=function(v,a,b){return v<a?a:v>b?b:v},lerp=function(a,b,t){return a+(b-a)*t};
+var ease=function(t){t=clamp(t,0,1);return t*t*(3-2*t)},out=function(t){t=clamp(t,0,1);return 1-Math.pow(1-t,3)};
+var seg=function(p,a,b){return clamp((p-a)/(b-a),0,1)};
+var esc=function(s){return String(s).replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]})};
+var sol=function(c){return 'S/ '+(c/100).toFixed(2)};
+var store={get:function(k,d){try{var v=localStorage.getItem('ramadita-'+k);return v===null?d:JSON.parse(v)}catch(_){return d}},set:function(k,v){try{localStorage.setItem('ramadita-'+k,JSON.stringify(v))}catch(_){}}};
+
+/* ---------- carta real del local (céntimos): [nombre, descripción, salón, para llevar] ---------- */
+var WA='51956052731';
+var CATS=[
+  {id:'platos',name:'Platos',short:'Platos',img:'fotos/ceviche-simple-t'},
+  {id:'fuentes',name:'Fuentes',short:'Fuentes',img:'fotos/parihuela-t',sub:'Para compartir en casa'},
+  {id:'criollos',name:'Criollos',short:'Criollos',img:'fotos/lomo-t'},
+  {id:'porciones',name:'Porciones',short:'Porciones',img:'fotos/huancaina-t'},
+  {id:'refrescos',name:'Refrescos',short:'Refrescos',img:'fotos/chicha-t'},
+  {id:'gaseosas',name:'Gaseosas',short:'Gaseosas'},
+  {id:'infusiones',name:'Infusiones',short:'Infusiones'}
+];
+var RAW={
+  platos:[['Patita con Cebiche','',2200,2300],['Combinado Simple','',1200,1300],['Combinado con Pata','',1700,1800],['Patita en Fiambre','',1200,1300],
+    ['Ceviche Simple','',2500,2600],['Ceviche Mixto','',3000,3100],['Arroz con Marisco','',2500,2600],['Chicharrón de Pescado','',2500,2600],
+    ['Pescado Frito Jurel','',2000,2100],['Pescado Frito Suco','',2500,2650],['Sudado de Tollo','',2300,2400],['Sudado de Suco','',2800,2900],
+    ['Parihuela de Tollo','',2800,3000],['Parihuela de Suco','',3200,3400],['Dúo Marino','',3000,3200],['Trío Marino','',3300,3500],['Chaufa de Mariscos','',2500,2600]],
+  fuentes:[['Fuente de Ceviche Simple','',5500,5700],['Fuente de Ceviche Mixto','',6000,6200],['Fuente de Arroz con Marisco','',5500,5700],['Fuente de Chicharrón de Pescado','',5500,5700],
+    ['Fuente Dúo Marino','',6000,6200],['Fuente Trío Marino','',6500,6700],['Fuente de Sudado de Tollo','',5000,5200],['Fuente de Sudado de Suco','',5200,5400],
+    ['Fuente de Parihuela de Tollo','',6000,6200],['Fuente de Parihuela de Suco','',6500,6700],['Fuente de Chaufa de Mariscos','',5200,5400]],
+  criollos:[['Lomo Saltado de Carne','',2000,2200],['Pollo Saltado','',1800,2000],['Churrasco','',1800,2000],['Chuleta','',1800,2000],
+    ['Pollo a la Plancha','',1800,2000],['Tallarín Saltado de Pollo','',1800,2000],['Tallarín Saltado de Carne','',2000,2200]],
+  porciones:[['Arroz','',450,500],['Camote','',400,450],['Yuca','',400,450],['Papa Sancochada','',400,450],['Yuca Frita','',600,650],
+    ['Crema de Huancaína','',400,450],['Papa a la Huancaína','',600,650],['Papa Frita','',600,650]],
+  refrescos:[['Jarra de Chicha Morada','',1200,1300],['Jarra de Maracuyá','',1200,1300],['1/2 Jarra de Chicha Morada','',600,650],['1/2 Jarra de Maracuyá','',600,650],['Vaso de Chicha o Maracuyá','',300,350]],
+  gaseosas:[['Gaseosa 1/2 litro','',500,500],['Gaseosa 1 litro','',1000,1000],['Agua mineral','',400,400]],
+  infusiones:[['Filtrante','',150,150],['Café','',200,200]]
+};
+var P=[];CATS.forEach(function(c){RAW[c.id].forEach(function(r,i){P.push({id:c.id+'-'+i,cat:c.id,name:r[0],desc:r[1],salon:r[2],llevar:r[3]})})});
+/* foto referencial por plato (Pexels, licencia libre) */
+var PHOTOS=[[/combinado/i,'combinado'],[/ceviche simple/i,'ceviche-simple'],[/ceviche mixto/i,'ceviche-mixto'],[/arroz con marisco/i,'arroz-marisco'],
+  [/chicharrón de pescado/i,'chicharron'],[/pescado frito/i,'pescado-frito'],[/sudado/i,'sudado'],[/parihuela/i,'parihuela'],[/dúo/i,'duo'],[/trío/i,'trio'],
+  [/chaufa/i,'chaufa'],[/lomo saltado/i,'lomo'],[/papa a la huancaína/i,'huancaina'],[/chicha/i,'chicha']];
+P.forEach(function(p){PHOTOS.forEach(function(x){if(!p.ph&&x[0].test(p.name))p.ph=x[1]})});
+var byId=function(id){for(var i=0;i<P.length;i++)if(P[i].id===id)return P[i]};
+var byName=function(n){for(var i=0;i<P.length;i++)if(P[i].name===n)return P[i]};
+
+/* modalidad: llevar (recojo) y delivery usan precio para llevar; local usa precio de salón */
+var mode='delivery';
+var price=function(p){return p.llevar};
+var priceTag=function(){return ''};
+
+/* ---------- los más pedidos ---------- */
+var ACTS=[
+  {n:'01',t:'Ceviche Mixto',img:'fotos/ceviche-mixto',say:'El que todos piden.',p:'Ceviche Mixto',d:'Pescado y mariscos frescos en su leche de tigre.',alt:'Ceviche mixto con langostinos, conchas, cebolla y canchita'},
+  {n:'02',t:'Trío Marino',img:'fotos/trio',say:'Tres sabores del mar en un plato.',p:'Trío Marino',d:'Para el que no se decide por uno solo.',alt:'Ceviche con chicharrón, canchita y choclo'},
+  {n:'03',t:'Arroz con Marisco',img:'fotos/arroz-marisco',say:'Salteado al fuego, al momento.',p:'Arroz con Marisco',d:'Recién salido de la sartén, con sabor a mar.',alt:'Arroz con mariscos en plato azul'},
+  {n:'04',t:'Pescado Frito Suco',img:'fotos/pescado-frito',say:'Doradito y crocante.',p:'Pescado Frito Suco',d:'Doradito por fuera, jugoso por dentro, con su sarsa.',alt:'Pescado entero frito con sarsa criolla y limón'},
+  {n:'Para compartir',t:'Fuente de Parihuela',img:'fotos/parihuela',say:'Para toda la familia, bien calientita.',p:'Fuente de Parihuela de Suco',d:'La fuente grande para el almuerzo en casa.',alt:'Parihuela de mariscos bien caliente'}
+];
+var track=$('#track'),dots=$('#dots');
+ACTS.forEach(function(a){
+  var pr=byName(a.p);
+  track.insertAdjacentHTML('beforeend','<article class="card"><div class="ph"><img src="assets/'+a.img+'.webp" alt="'+esc(a.alt)+'" loading="lazy"><span class="num">'+a.n+'</span><span class="say"><span>'+esc(a.say)+'</span><img src="assets/icono.webp" alt=""></span></div>'+
+    '<div class="tx"><h3 class="big">'+esc(a.t)+'</h3><div class="ds">'+esc(a.d)+'</div><div class="row"><span class="tagp" data-pid="'+pr.id+'"></span>'+
+    '<button class="add2" type="button" data-q="'+pr.id+'" data-d="1">Lo quiero <span aria-hidden="true">+</span></button></div></div></article>');
+  dots.insertAdjacentHTML('beforeend','<button type="button" class="dt" aria-label="Ver plato '+(dots.children.length+1)+'"><b></b></button>');
+});
+$('#actsMeta').innerHTML='Los favoritos<br>de la casa';
+var cards=$$('.card'),dotB=$$('#dots b'),dotBtn=$$('#dots .dt');
+var trq=0;function paintTrack(){trq=0;var W=track.clientWidth,c=track.scrollLeft+W/2,n=cards.length;
+  cards.forEach(function(cd,i){var cx=(cd.offsetLeft+cd.offsetWidth/2-c)/W,ry=clamp(-cx*40,-40,40);
+    cd.style.transform='perspective(1000px) rotateY('+ry.toFixed(2)+'deg) scale('+(1-Math.min(Math.abs(cx),1)*.1).toFixed(3)+')';
+    dotB[i].style.transform='scaleX('+clamp(1-Math.abs(cx)*1.6,0,1).toFixed(3)+')'})}
+track.addEventListener('scroll',function(){if(!trq)trq=requestAnimationFrame(paintTrack)},{passive:true});
+window.addEventListener('resize',function(){requestAnimationFrame(paintTrack)});
+dotBtn.forEach(function(d,i){d.addEventListener('click',function(){var cd=cards[i];track.scrollTo({left:cd.offsetLeft-(track.clientWidth-cd.offsetWidth)/2,behavior:'smooth'})})});
+requestAnimationFrame(paintTrack);
+
+
+/* ---------- carta ---------- */
+var tabs=$('#tabs'),menu=$('#menu');
+CATS.forEach(function(c){
+  tabs.insertAdjacentHTML('beforeend','<button class="tab" type="button" role="tab" data-tab="'+c.id+'" aria-selected="false">'+c.short+'</button>');
+  menu.insertAdjacentHTML('beforeend','<section class="sec" id="sec-'+c.id+'"><div class="sec-h"><h3 class="big">'+c.name+(c.sub?'<small>'+c.sub+'</small>':'')+'</h3>'+(c.img?'<img src="assets/'+c.img+'.webp" alt="" loading="lazy">':'')+'</div>'+
+    P.filter(function(p){return p.cat===c.id}).map(function(p){return '<div class="item" data-item="'+p.id+'">'+(p.ph?'<button class="thumb" type="button" data-photo="'+p.id+'" aria-label="Ver foto de '+esc(p.name)+'"><img src="assets/fotos/'+p.ph+'-t.webp" alt="" loading="lazy"></button>':'<span class="thumb no" aria-hidden="true"></span>')+'<span class="nm">'+esc(p.name)+(p.desc?'<span class="ds">'+esc(p.desc)+'</span>':'')+'</span><span class="pr"></span><span class="act"></span></div>'}).join('')+'</section>');
+});
+
+
+/* ---------- antojos: filtros de la carta ---------- */
+var FIL=[
+  {id:'ceviche',t:'Ceviches y combinados',img:'ceviche-mixto-t',ok:function(p){return /ceviche|cebiche|combinado|dúo|trío|patita/i.test(p.name)}},
+  {id:'arroz',t:'Arroces y chaufa',img:'arroz-marisco-t',ok:function(p){return /marisco|chaufa/i.test(p.name)}},
+  {id:'sudado',t:'Sudados y parihuelas',img:'sudado-t',ok:function(p){return /sudado|parihuela/i.test(p.name)}},
+  {id:'frito',t:'Fritos y chicharrón',img:'chicharron-t',ok:function(p){return /pescado frito|chicharrón/i.test(p.name)}},
+  {id:'criollo',t:'Platos criollos',img:'lomo-t',ok:function(p){return p.cat==='criollos'}},
+  {id:'fuente',t:'Fuentes para compartir',img:'parihuela-t',ok:function(p){return p.cat==='fuentes'}},
+  {id:'acomp',t:'Para acompañar',img:'huancaina-t',ok:function(p){return p.cat==='porciones'}},
+  {id:'bebida',t:'Bebidas',img:'chicha-t',ok:function(p){return p.cat==='refrescos'||p.cat==='gaseosas'||p.cat==='infusiones'}}
+];
+$('#crave').innerHTML=FIL.map(function(f){return '<button class="cv" type="button" data-fil="'+f.id+'" aria-pressed="false"><img src="assets/fotos/'+f.img+'.webp" alt="" loading="lazy"><span>'+esc(f.t)+'</span></button>'}).join('')+'<button class="cv all" type="button" data-fil="all" aria-pressed="true"><span>Ver toda la carta</span></button>';
+function setFil(id){
+  var F=null;FIL.forEach(function(f){if(f.id===id)F=f});
+  $$('.cv').forEach(function(b){b.setAttribute('aria-pressed',(b.dataset.fil===id||(!F&&b.dataset.fil==='all'))?'true':'false')});
+  $$('.item').forEach(function(el){el.hidden=!!F&&!F.ok(byId(el.dataset.item))});
+  $$('.sec').forEach(function(sc){var any=false;[].slice.call(sc.querySelectorAll('.item')).forEach(function(i){if(!i.hidden)any=true});sc.hidden=!any});
+  $('.tabs').hidden=!!F;
+  var fb=$('#fbw');fb.hidden=!F;if(F)$('#fbarT').textContent=F.t;
+  var tg=$('#menuTop');if(tg)tg.scrollIntoView({behavior:RM?'auto':'smooth'});
+}
+
+/* ---------- a tu gusto: picante y leche de tigre ---------- */
+var PIC=[['Sin ají',0],['Normal',1],['Picante',2],['Bien picante',3]];
+var pic=store.get('pic','Normal'),leche=!!store.get('leche',false);
+function paintPic(){
+  $('#picSeg').style.setProperty('--n',4);
+  $('#picSeg').innerHTML=PIC.map(function(x){return '<button type="button" data-pic="'+x[0]+'" aria-pressed="'+(pic===x[0])+'">'+x[0]+'</button>'}).join('');
+  var lv=0;PIC.forEach(function(x){if(x[0]===pic)lv=x[1]});$('#chili').innerHTML=new Array(lv+1).join('<i></i>');
+  $('#lecheSw').setAttribute('aria-pressed',leche?'true':'false');
+}
+paintPic();
+
+/* ---------- precios: salón o para llevar ---------- */
+function paintMode(){
+  $$('.item').forEach(function(el){var p=byId(el.dataset.item);el.querySelector('.pr').innerHTML=sol(price(p))});
+  $$('.tagp').forEach(function(el){var p=byId(el.dataset.pid);el.innerHTML=sol(price(p))});
+}
+
+/* ---------- horario: 8:30 a. m. a 3:00 p. m. · hora de Lima (UTC-5) ---------- */
+var OPEN=8*3600+30*60,CLOSE=15*3600,SOON=6*3600,two=function(n){return String(n).padStart(2,'0')};
+function hms(s){return s>=3600?Math.floor(s/3600)+':'+two(Math.floor(s%3600/60))+':'+two(s%60):two(Math.floor(s/60))+':'+two(s%60)}
+function paintClock(){
+  var d=new Date(),t=((d.getUTCHours()-5+24)%24)*3600+d.getUTCMinutes()*60+d.getUTCSeconds();
+  var H=$('#clockH'),C=$('#clock'),BW=$('#barWrap'),B=$('#dayBar'),L=$('#live'),LT=$('#liveTx'),Pp=$('#clockP'),Bt=$('#clockBtn');
+  if(t>=OPEN&&t<CLOSE){L.classList.remove('off');LT.textContent='ABIERTO AHORA';H.textContent='Atendemos desde las 8:30 a. m.';C.hidden=true;BW.hidden=true;
+    Pp.textContent='Pide ahora y te lo llevamos hasta la puerta de tu casa.';Bt.textContent='Armar mi pedido';return}
+  if(t>=SOON&&t<OPEN){L.classList.remove('off');LT.textContent='YA CASI ABRIMOS';H.textContent='Abrimos en';C.hidden=false;BW.hidden=false;C.textContent=hms(OPEN-t);B.style.transform='scaleX('+((t-SOON)/(OPEN-SOON)).toFixed(3)+')';
+    Pp.textContent='Atendemos desde las 8:30 a. m. Programa tu pedido y lo preparamos apenas abramos.';Bt.textContent='Programar mi pedido';return}
+  L.classList.add('off');LT.textContent='CERRADO POR AHORA';H.textContent='Atendemos desde las 8:30 a. m.';C.hidden=true;BW.hidden=true;
+  Pp.textContent='Programa tu pedido y lo atendemos en cuanto abramos.';Bt.textContent='Programar mi pedido';
+}
+paintClock();setInterval(paintClock,1000);
+
+/* ---------- pedido ---------- */
+var cart={},form={nombre:'',tel:'',dir:'',ref:'',hora:'',obs:''},errors={};
+/* delivery: S/ 2 por km (zona alta: S/ 3, solo lo ve el despacho).
+   TIENDA = punto aproximado de Av. Gran Chimú 1806 (confirmar con el pin real del local). */
+var TIENDA={lat:-8.073385,lng:-79.046648},TARIFA={normal:2,alta:3},FACTOR_RUTA=1.35;
+var zona='normal',loc=null,locBusy=false,locErr='';
+function kmDesde(a){var R=6371,r=Math.PI/180,dLa=(a.lat-TIENDA.lat)*r,dLo=(a.lng-TIENDA.lng)*r;
+  var h=Math.sin(dLa/2)*Math.sin(dLa/2)+Math.cos(TIENDA.lat*r)*Math.cos(a.lat*r)*Math.sin(dLo/2)*Math.sin(dLo/2);
+  return Math.max(.5,Math.round(2*R*Math.asin(Math.sqrt(h))*FACTOR_RUTA*10)/10)}
+function envio(){if(mode!=='delivery'||!loc)return 0;return Math.ceil(kmDesde(loc)*TARIFA[zona]*2)/2*100}
+function mapsLink(a){return 'https://maps.google.com/?q='+a.lat.toFixed(6)+','+a.lng.toFixed(6)}
+var NOLOC='Tu celular no permite compartir la ubicación desde aquí. Escribe tu dirección y envíanos tu ubicación por WhatsApp.';
+function pedirUbicacion(){
+  if(locBusy||loc)return;
+  if(!navigator.geolocation){locErr=NOLOC;paintSheet(true);return}
+  locBusy=true;locErr='';paintSheet(true);
+  try{navigator.geolocation.getCurrentPosition(function(pos){
+      locBusy=false;loc={lat:pos.coords.latitude,lng:pos.coords.longitude,acc:Math.round(pos.coords.accuracy||0)};paintSheet(true);paintBar()},
+    function(err){locBusy=false;locErr=err&&err.code===1?'No se dio permiso para ver tu ubicación. Puedes intentarlo otra vez o enviarla por WhatsApp junto al pedido.':NOLOC;paintSheet(true)},
+    {enableHighAccuracy:true,timeout:15000,maximumAge:0})}
+  catch(e){locBusy=false;locErr=NOLOC;paintSheet(true)}
+}
+var saved=store.get('cart',{});for(var k in saved)if(byId(k)&&saved[k]>0)cart[k]=saved[k];
+function save(){store.set('cart',cart);store.set('pic',pic);store.set('leche',leche);store.set('mode',mode)}
+function count(){var n=0;for(var k in cart)n+=cart[k];return n}
+function subtotal(){var t=0;for(var k in cart)t+=cart[k]*price(byId(k));return t}
+function total(){return subtotal()+envio()}
+function hasCeviche(){for(var k in cart)if(/ceviche|cebiche|combinado|dúo|trío/i.test(byId(k).name))return true;return false}
+function stepper(id){return '<div class="step"><button type="button" data-q="'+id+'" data-d="-1" aria-label="Quitar uno">−</button><span>'+cart[id]+'</span><button type="button" data-q="'+id+'" data-d="1" aria-label="Agregar uno">+</button></div>'}
+function addBtn(p){return '<button class="add" type="button" data-q="'+p.id+'" data-d="1" aria-label="Agregar '+esc(p.name)+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>'}
+function paintItems(){$$('.item').forEach(function(el){var p=byId(el.dataset.item);el.querySelector('.act').innerHTML=cart[p.id]?stepper(p.id):addBtn(p)})}
+function paintBar(){var n=count();$('#barCount').textContent=n;$('#barTot').textContent=sol(total());$('#bar').classList.toggle('show',n>0&&!sheetOpen);
+  document.body.classList.toggle('has-bar',n>0);var b=$('#badge');b.hidden=!n;b.textContent=n}
+function setQty(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];save();paintItems();paintBar();if(d>0){[['#badge','bump'],['#openSheet','bump2']].forEach(function(x){var e=$(x[0]);e.classList.remove(x[1]);void e.offsetWidth;e.classList.add(x[1])})}if(sheetOpen)paintSheet(true)}
+function setMode(m){mode=m;save();paintMode();paintBar();if(sheetOpen)paintSheet(true)}
+var sheet=$('#sheet'),scrim=$('#scrim'),sheetIn=$('#sheetIn'),sheetOpen=false,lastFocus;
+function prefTxt(){return 'Picante: '+pic+(leche?' · Leche de tigre aparte':'')}
+var MODES={llevar:'Para llevar (recojo en el local)',delivery:'Delivery',local:'Comer en el local'};
+var AVISO='https://rutago.app.n8n.cloud/webhook/pedido-rutago-7c3e91',TIENDA_ID='ramadita';
+function nuevoId(){var c='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',r='RG-';for(var i=0;i<5;i++)r+=c.charAt(Math.floor(Math.random()*c.length));return r}
+var orderId=nuevoId();
+function avisar(){
+  try{
+    var items=[];for(var k in cart)items.push({n:byId(k).name,q:cart[k]});
+    var d={tienda:TIENDA_ID,id:orderId,modo:mode,nombre:form.nombre.trim(),tel:form.tel.replace(/\D/g,''),
+      dir:mode==='delivery'?form.dir.trim():'',ref:mode==='delivery'?form.ref.trim():'',
+      mapa:(mode==='delivery'&&loc)?mapsLink(loc):'',km:(mode==='delivery'&&loc)?kmDesde(loc):0,envioAlta:(mode==='delivery'&&loc)?Math.ceil(kmDesde(loc)*TARIFA.alta*2)/2:0,
+      hora:form.hora.trim(),pic:hasCeviche()?pic:'',leche:hasCeviche()&&leche,obs:form.obs.trim(),items:items,subtotal:subtotal()/100,envio:envio()/100,total:total()/100};
+    fetch(AVISO,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d),keepalive:true,mode:'cors'}).catch(function(){})
+  }catch(e){}
+}
+function message(){
+  var L=['Hola La Ramadita de Amy, quiero hacer este pedido (N° '+orderId+'):',''];
+  for(var k in cart){var p=byId(k);L.push('• '+cart[k]+' × '+p.name+' — '+sol(price(p)*cart[k]))}
+  L.push('');if(hasCeviche())L.push(prefTxt());
+  if(mode==='delivery'&&loc){L.push('Productos: '+sol(subtotal()),'Delivery aprox.: '+sol(envio())+' ('+kmDesde(loc)+' km)','Total aprox.: '+sol(total()))}
+  else L.push('Total: '+sol(total())+(mode==='delivery'?' + envío':''));
+  L.push('Modalidad: '+MODES[mode],'Nombre: '+form.nombre.trim());
+  if(form.tel.trim())L.push('Teléfono: '+form.tel.trim());
+  if(mode==='delivery'){if(form.dir.trim())L.push('Dirección: '+form.dir.trim());if(form.ref.trim())L.push('Referencia: '+form.ref.trim());
+    if(loc)L.push('Ubicación GPS: '+mapsLink(loc));}
+  if(form.hora.trim())L.push('Hora de entrega: '+form.hora.trim());
+  if(form.obs.trim())L.push('Observaciones: '+form.obs.trim());
+  L.push('',mode==='delivery'?(loc?'Quedo atento a la confirmación del envío.':'Quedo atento a la confirmación y al costo del envío.'):'Quedo atento a la confirmación.');
+  return L.join('\n');
+}
+function waLink(){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(message())}
+function valid(){errors={};if(!form.nombre.trim())errors.nombre='Escribe tu nombre para saber de quién es el pedido.';
+  var tel=form.tel.replace(/\D/g,'');
+  if(mode==='delivery'&&!tel)errors.tel='Escribe un número para que el motorizado te llame.';
+  else if(tel&&!/^(51)?9\d{8}$/.test(tel))errors.tel='Revisa el número: son 9 dígitos y empieza con 9.';
+  if(mode==='delivery'&&!form.dir.trim())errors.dir='Escribe la dirección (calle y número) para que el motorizado llegue.';return !Object.keys(errors).length}
+function paintSheet(keep){
+  var y=sheet.scrollTop,ids=Object.keys(cart);
+  var f=function(k,label,ph,opt){return '<div class="field'+(errors[k]?' err':'')+'"><label for="f-'+k+'">'+label+(opt?' <small>(opcional)</small>':'')+'</label><input id="f-'+k+'" data-f="'+k+'"'+(k==='tel'?' type="tel" inputmode="tel" autocomplete="tel"':' autocomplete="off"')+' value="'+esc(form[k])+'" placeholder="'+ph+'">'+(errors[k]?'<span class="msg">'+errors[k]+'</span>':'')+'</div>'};
+  var pin='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>';
+  var locBox='<div class="field"><span class="lbl2">Ubicación exacta <small>(opcional, para calcular el envío)</small></span><div class="loc">'+
+    (loc?'<div class="locok"><span><b>GPS listo ✓</b><br>'+kmDesde(loc)+' km del local'+(loc.acc?' · precisión '+loc.acc+' m':'')+' · <a href="'+mapsLink(loc)+'" target="_blank" rel="noopener">Ver en mapa</a></span><button class="locx" type="button" id="locX">Quitar</button></div>'
+      :'<button class="locbtn" type="button" id="getLoc"'+(locBusy?' disabled':'')+'>'+pin+(locBusy?'Buscando…':'Enviar ubicación GPS')+'</button><small>Si no funciona el GPS, escribe bien la dirección arriba y el motorizado te confirma el costo.</small>')+
+    (locErr&&!loc?'<div class="locerr">'+esc(locErr)+'</div>':'')+'</div></div>';
+  var extra=f('tel','Teléfono de quien recibe','Ej.: 987 654 321')+f('dir','Dirección de entrega','Ej.: Av. España 1238, La Esperanza')+f('ref','Referencia','Ej.: frente al parque, portón azul',true)+locBox+f('hora','¿Para qué hora lo quieres?','Ej.: 1:30 p. m. (si es para ahora, déjalo vacío)',true);
+  sheetIn.innerHTML='<span class="grab" aria-hidden="true"></span><div class="sheet-top"><div class="who"><img src="assets/icono.webp" alt=""><h2 id="sheetTitle">Tu pedido</h2></div><button class="close" type="button" id="closeSheet" aria-label="Cerrar">✕</button></div>'+
+    (ids.length?'<div class="lines">'+ids.map(function(id){var p=byId(id);return '<div class="line"><b>'+esc(p.name)+'</b><small>'+sol(price(p))+' c/u</small>'+stepper(id)+'</div>'}).join('')+'</div>'+
+      (hasCeviche()?'<div class="chip">Picante: <b>'+esc(pic)+'</b>'+(leche?' · Leche de tigre aparte':'')+' · <a href="#picSeg" id="toPrefs">cambiar</a></div>':'')+
+      '<div class="chip"><b>Delivery</b> · De nuestra ramadita hasta la puerta de tu casa</div>'+
+      f('nombre','Tu nombre','Para saber de quién es el pedido')+extra+
+      '<div class="field"><label for="f-obs">Observaciones <small>(opcional)</small></label><textarea id="f-obs" data-f="obs" placeholder="Ej.: sin cebolla, con bastante canchita">'+esc(form.obs)+'</textarea></div>'+
+      (mode==='delivery'?(loc?'<div class="fee"><span>Productos</span><span style="color:inherit">'+sol(subtotal())+'</span></div><div class="fee"><span>Envío aprox. ('+kmDesde(loc)+' km)</span><span>'+sol(envio())+'</span></div>'
+        :'<p class="finep" style="margin:0;text-align:left">El costo del delivery lo confirma el motorizado por WhatsApp. Son S/ 2 por km desde el local.</p>'):'')+
+      '<div class="total"><span>'+(mode==='delivery'&&loc?'Total aprox.':'Total')+'</span><span>'+sol(total())+'</span></div>'+
+      (mode==='delivery'&&loc?'<p class="finep" style="margin-top:-10px">El envío se confirma por chat según la ruta real.</p>':'')+
+      '<a class="send" id="send" href="'+waLink()+'" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Pide por WhatsApp</a>'+
+      '<p class="finep">Se abre WhatsApp con tu pedido escrito. Tú lo envías y te confirmamos por chat.</p>'
+    :'<p class="empty">Todavía no agregaste nada. Toca el + de lo que se te antoje.</p>');
+  if(keep)sheet.scrollTop=y;
+}
+function openSheet(){lastFocus=document.activeElement;sheetOpen=true;paintSheet();sheet.classList.add('show');scrim.classList.add('show');paintBar();document.body.style.overflow='hidden';var c=$('#closeSheet');if(c)c.focus()}
+function closeSheet(){sheetOpen=false;sheet.classList.remove('show');scrim.classList.remove('show');document.body.style.overflow='';paintBar();if(lastFocus&&lastFocus.focus)lastFocus.focus()}
+function toast(t){var d=document.createElement('div');d.className='toast';d.setAttribute('role','status');d.textContent=t;document.body.appendChild(d);setTimeout(function(){d.remove()},1600)}
+document.addEventListener('click',function(e){
+  var t=e.target.closest('button,a');if(!t)return;
+  if(t.dataset.q){var d=+t.dataset.d,first=!cart[t.dataset.q]&&d>0;setQty(t.dataset.q,d);if(first)toast(byId(t.dataset.q).name+' agregado');return}
+  if(t.dataset.photo){openLb(t.dataset.photo);return}
+  if(t.id==='getLoc'){pedirUbicacion();return}
+  if(t.id==='locX'){loc=null;locErr='';paintSheet(true);paintBar();return}
+  if(t.dataset.zona){zona=t.dataset.zona;paintSheet(true);paintBar();return}
+  if(t.id==='lbX'){closeLb();return}
+  if(t.id==='lbAdd'){var id=lbId,first=!cart[id];setQty(id,1);if(first)toast(byId(id).name+' agregado');closeLb();return}
+  if(t.dataset.fil){setFil(t.dataset.fil);return}
+  if(t.dataset.tab){var el=document.getElementById('sec-'+t.dataset.tab);if(el)el.scrollIntoView({behavior:RM?'auto':'smooth'});return}
+  if(t.dataset.setmode){errors={};setMode(t.dataset.setmode);return}
+  if(t.dataset.pic){pic=t.dataset.pic;save();paintPic();return}
+  if(t.id==='lecheSw'){leche=!leche;save();paintPic();return}
+  if(t.id==='toPrefs'){e.preventDefault();closeSheet();$('#picSeg').scrollIntoView({behavior:RM?'auto':'smooth',block:'center'});return}
+  if(t.id==='openSheet'||t.id==='cartTop'){openSheet();return}
+  if(t.id==='closeSheet'){closeSheet();return}
+  if(t.id==='send'){if(!valid()){e.preventDefault();paintSheet(true);var fe=sheet.querySelector('.field.err input');if(fe)fe.focus()}else{orderId=nuevoId();t.href=waLink();avisar()}return}
+});
+scrim.addEventListener('click',closeSheet);
+var lb=$('#lb'),lbId=null;
+function openLb(id){var p=byId(id);lbId=id;$('#lbImg').src='assets/fotos/'+p.ph+'.webp';$('#lbImg').alt=p.name;$('#lbName').textContent=p.name;$('#lbPr').textContent=sol(price(p));$('#lbTag').textContent=priceTag();lb.classList.add('show');$('#lbX').focus()}
+function closeLb(){lb.classList.remove('show')}
+lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){if(lb.classList.contains('show'))closeLb();else if(sheetOpen)closeSheet()}});
+sheet.addEventListener('input',function(e){var k=e.target.dataset&&e.target.dataset.f;if(!k)return;form[k]=e.target.value;
+  if(errors[k]){delete errors[k];var fl=e.target.closest('.field');fl.classList.remove('err');var m=fl.querySelector('.msg');if(m)m.remove()}
+  var s=$('#send');if(s)s.href=waLink()});
+paintMode();paintItems();paintBar();
+if(!RM&&'IntersectionObserver' in window){var rio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  var mk=function(sel,st){$$(sel).forEach(function(el,i){el.classList.add('rv');if(st)el.style.setProperty('--d',((i%st.n)*st.s)+'s');rio.observe(el)})};
+  mk('.hooks>h2');mk('.box',{n:2,s:.08});mk('.carta h2');mk('.carta .lead');mk('.cv',{n:2,s:.07});mk('.sec-h');mk('.item',{n:4,s:.04});mk('.historia h2');mk('.historia .hf');mk('.historia p');mk('.end h2');mk('.info>div',{n:3,s:.08})}
+
+/* ---------- manifiesto ---------- */
+var man=$('#manifest'),words=man.textContent.trim().split(/\s+/);
+man.innerHTML=words.map(function(w){var c=/^(frescos|sazón|mar,?)$/i.test(w)?' hot':/^(cercanía\.?|2014,?)$/i.test(w)?' cool':'';return '<span class="w'+c+'">'+esc(w)+'</span>'}).join(' ');
+var wEls=$$('#manifest .w');
+
+/* ---------- burbujas en el mar ---------- */
+function bubbles(cv){
+  if(RM||!cv.getContext)return;var ctx=cv.getContext('2d'),W=0,H=0,ps=[],on=true,dpr=Math.min(devicePixelRatio||1,2);
+  function rs(){W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+  function mk(){return {x:Math.random()*W,y:H+Math.random()*H*.2,r:1.5+Math.random()*4,v:.25+Math.random()*.7,w:Math.random()*6.28,a:.25+Math.random()*.45}}
+  rs();for(var i=0;i<40;i++){var p=mk();p.y=Math.random()*H;ps.push(p)}
+  new IntersectionObserver(function(e){on=e[0].isIntersecting}).observe(cv);
+  window.addEventListener('resize',rs);
+  (function f(){requestAnimationFrame(f);if(!on)return;ctx.clearRect(0,0,W,H);ctx.lineWidth=1.2;
+    ps.forEach(function(p,i){p.y-=p.v;p.w+=.03;p.x+=Math.sin(p.w)*.35;if(p.y<-10){ps[i]=mk();return}
+      var fade=Math.min(1,p.y/(H*.15));ctx.strokeStyle='rgba(255,255,255,'+(p.a*fade).toFixed(3)+')';ctx.fillStyle='rgba(191,230,255,'+(p.a*.25*fade).toFixed(3)+')';
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.283);ctx.fill();ctx.stroke()})})();
+}
+$$('canvas.bubbles').forEach(bubbles);
+
+/* ---------- salto inicial del tiburón ---------- */
+var WMN=10,wmh='';for(var wi=0;wi<WMN;wi++)wmh+='<i style="--i:'+wi+';background-position:'+(wi/(WMN-1)*100).toFixed(2)+'% 0"></i>';$('#wm').innerHTML=wmh;
+var stage=$('#stage');
+setTimeout(function(){stage.classList.add('go')},RM?0:250);
+var shk=$('#shk');
+if(RM)shk.classList.add('go');else new IntersectionObserver(function(e,o){if(e[0].isIntersecting){shk.classList.add('go');o.disconnect()}},{threshold:.4}).observe(shk);
+
+/* ---------- motor de scroll: una lectura por cuadro, solo transform y opacity ---------- */
+var pins=$$('[data-pin]').map(function(el){return {el:el,name:el.dataset.pin,p:-1}});
+var VW=0,VH=0,vel=0,lastY=window.scrollY,maniTop=0,maniH=1;
+var emb=$('#emb'),SH=0,diveEl=$('#dive'),sea=$('#sea'),hint=$('#hint'),tW=$$('.title h1 span'),tP=$('#titleP'),ctas=$('#ctas'),wm=$('#wm');
+var tideH=$('.tide h2'),vid=$('#vid'),bimg=$('.bimg'),btx=$('.btx');
+if(vid){if(RM){vid.removeAttribute('autoplay')}else{new IntersectionObserver(function(e){var v=e[0];if(v.isIntersecting){var pr=vid.play();if(pr&&pr.catch)pr.catch(function(){})}else vid.pause()},{threshold:.1}).observe(vid)}}
+var WIDE=false;
+function measure(){SH=diveEl.offsetHeight;VW=document.documentElement.clientWidth;VH=window.innerHeight;WIDE=matchMedia('(min-width:900px) and (min-aspect-ratio:1/1)').matches;
+  pins.forEach(function(s){s.top=s.el.offsetTop;s.h=Math.max(1,s.el.offsetHeight-VH)});
+  maniTop=man.parentNode.offsetTop;maniH=man.parentNode.offsetHeight;
+  track.style.setProperty('--cg',Math.round(VW*(VW<700?.06:.04))+'px');
+}
+var FN={
+  hero:function(p){
+    hint.style.opacity=p>.03?0:1;
+    var rise=ease(seg(p,.04,.4));
+    sea.style.transform='translate3d(0,'+(-rise*(WIDE?.2:.3)*VH).toFixed(1)+'px,0)';
+    /* solo el tiburón: salta del agua y se zambulle de cabeza siguiendo el scroll */
+    var S=SH||200,EW=emb.offsetWidth,t=seg(p,.02,.42),y,r,x,u=0;
+    if(t<.3){var j=out(t/.3);y=-.46*S*j;x=-.03*EW*j;r=10*j}
+    else{u=(t-.3)/.7;y=lerp(-.46*S,1.05*VH,u*u);x=lerp(-.03*EW,-.1*EW,ease(u));r=lerp(10,-82,ease(Math.min(1,u*1.5)))}
+    var deep=clamp((y-.3*S)/(.8*VH),0,1)*.6;
+    diveEl.style.transform='translate3d('+x.toFixed(1)+'px,'+y.toFixed(1)+'px,0) rotate('+r.toFixed(1)+'deg)';
+    diveEl.style.filter=deep>0?'brightness('+(1-.5*deep).toFixed(3)+') saturate('+(1-.5*deep).toFixed(3)+')':'';
+    diveEl.style.opacity=(1-.85*seg(u,.7,1)).toFixed(3);
+    var inW=u>0&&y>.22*S;if(inW&&!stage.classList.contains('sp2'))stage.classList.add('sp2');else if(y<.05*S&&stage.classList.contains('sp2'))stage.classList.remove('sp2');
+    emb.style.opacity=(1-seg(p,.34,.5)).toFixed(3);
+    var wp=seg(p,.03,.2),lo=1-wp;wm.style.opacity=lo.toFixed(3);wm.style.visibility=lo<.02?'hidden':'';wm.style.transform=(WIDE?'':'translateX(-50%) ')+'translateY('+(-wp*26).toFixed(1)+'px)';
+    tW.forEach(function(w,i){var a=out(seg(p,.38+i*.07,.54+i*.07));w.style.opacity=a.toFixed(3);w.style.transform='translateY('+((1-a)*40).toFixed(1)+'px) scale('+lerp(.7,1,a).toFixed(3)+')'});
+    var a2=seg(p,.64,.76);tP.style.opacity=a2.toFixed(3);ctas.style.opacity=a2.toFixed(3);ctas.classList.toggle('on',a2>.5);
+  },
+  acts:function(p){
+    var n=cards.length,dist=track.scrollWidth-VW,x=-dist*ease(seg(p,.04,.96));
+    track.style.transform='translate3d('+x.toFixed(1)+'px,0,0)';
+    cards.forEach(function(c){var r=c.getBoundingClientRect(),cx=(r.left+r.width/2)/VW-.5;var ry=clamp(-cx*38,-38,38)+clamp(vel*.06,-10,10);
+      c.style.transform='rotateY('+ry.toFixed(2)+'deg) translateZ('+(-Math.abs(cx)*120).toFixed(1)+'px)'});
+    var f=p*n;dotB.forEach(function(b,i){b.style.transform='scaleX('+clamp(f-i,0,1).toFixed(3)+')'});
+  },
+  bite:function(p){bimg.style.transform='scale('+lerp(1.3,1,ease(seg(p,0,.7))).toFixed(4)+')';
+    var a=out(seg(p,.15,.45));btx.style.opacity=a.toFixed(3);btx.style.transform='translateY('+((1-a)*30).toFixed(1)+'px)'},
+  tide:function(p){vid.style.transform='scale('+lerp(1.15,1,ease(p)).toFixed(4)+')';
+    var a=out(seg(p,.1,.45));tideH.style.opacity=a.toFixed(3);tideH.style.transform='scale('+lerp(.85,1,a).toFixed(3)+')'}
+};
+function frame(){
+  var y=window.scrollY;vel=lerp(vel,y-lastY,.25);lastY=y;
+  if(!RM){pins.forEach(function(s){var p=clamp((y-s.top)/s.h,0,1);if(y+VH<s.top-50||y>s.top+s.h+VH+50)return;if(Math.abs(p-s.p)>.0004||s.name==='acts'&&Math.abs(vel)>.2){s.p=p;FN[s.name](p)}})}
+  var mp=clamp((y+VH*.75-maniTop)/(maniH*.8),0,1),lit=Math.round(mp*wEls.length);wEls.forEach(function(w,i){w.classList.toggle('on',RM||i<lit)});
+  var cur=null;CATS.forEach(function(c){var el=document.getElementById('sec-'+c.id);if(el&&el.getBoundingClientRect().top<VH*.4)cur=c.id});
+  $$('.tab').forEach(function(t){t.setAttribute('aria-selected',t.dataset.tab===cur?'true':'false')});
+  requestAnimationFrame(frame);
+}
+window.addEventListener('resize',function(){measure();pins.forEach(function(s){s.p=-1})});
+measure();
+if(RM){wEls.forEach(function(w){w.classList.add('on')})}
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
