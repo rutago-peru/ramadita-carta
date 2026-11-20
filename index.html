@@ -697,7 +697,7 @@ var ACTS=[
 var track=$('#track'),dots=$('#dots');
 ACTS.forEach(function(a){
   var pr=byName(a.p);
-  track.insertAdjacentHTML('beforeend','<article class="card"><div class="ph"><img src="'+a.img+'.webp" alt="'+esc(a.alt)+'" loading="lazy"><span class="num">'+a.n+'</span><span class="say"><span>'+esc(a.say)+'</span><img src="icono.webp" alt=""></span></div>'+
+  track.insertAdjacentHTML('beforeend','<article class="card"><div class="ph"><img src="/'+a.img+'.webp" alt="'+esc(a.alt)+'" loading="lazy"><span class="num">'+a.n+'</span><span class="say"><span>'+esc(a.say)+'</span><img src="icono.webp" alt=""></span></div>'+
     '<div class="tx"><h3 class="big">'+esc(a.t)+'</h3><div class="ds">'+esc(a.d)+'</div><div class="row"><span class="tagp" data-pid="'+pr.id+'"></span>'+
     '<button class="add2" type="button" data-q="'+pr.id+'" data-d="1">Lo quiero <span aria-hidden="true">+</span></button></div></div></article>');
   dots.insertAdjacentHTML('beforeend','<button type="button" class="dt" aria-label="Ver plato '+(dots.children.length+1)+'"><b></b></button>');
@@ -718,8 +718,8 @@ requestAnimationFrame(paintTrack);
 var tabs=$('#tabs'),menu=$('#menu');
 CATS.forEach(function(c){
   tabs.insertAdjacentHTML('beforeend','<button class="tab" type="button" role="tab" data-tab="'+c.id+'" aria-selected="false">'+c.short+'</button>');
-  menu.insertAdjacentHTML('beforeend','<section class="sec" id="sec-'+c.id+'"><div class="sec-h"><h3 class="big">'+c.name+(c.sub?'<small>'+c.sub+'</small>':'')+'</h3>'+(c.img?'<img src="'+c.img+'.webp" alt="" loading="lazy">':'')+'</div>'+
-    P.filter(function(p){return p.cat===c.id}).map(function(p){return '<div class="item" data-item="'+p.id+'">'+(p.ph?'<button class="thumb" type="button" data-photo="'+p.id+'" aria-label="Ver foto de '+esc(p.name)+'"><img src="'+p.ph+'-t.webp" alt="" loading="lazy"></button>':'<span class="thumb no" aria-hidden="true"></span>')+'<span class="nm">'+esc(p.name)+(p.desc?'<span class="ds">'+esc(p.desc)+'</span>':'')+'</span><span class="pr"></span><span class="act"></span></div>'}).join('')+'</section>');
+  menu.insertAdjacentHTML('beforeend','<section class="sec" id="sec-'+c.id+'"><div class="sec-h"><h3 class="big">'+c.name+(c.sub?'<small>'+c.sub+'</small>':'')+'</h3>'+(c.img?'<img src="/'+c.img+'.webp" alt="" loading="lazy">':'')+'</div>'+
+    P.filter(function(p){return p.cat===c.id}).map(function(p){return '<div class="item" data-item="'+p.id+'">'+(p.ph?'<button class="thumb" type="button" data-photo="'+p.id+'" aria-label="Ver foto de '+esc(p.name)+'"><img src="/'+p.ph+'-t.webp" alt="" loading="lazy"></button>':'<span class="thumb no" aria-hidden="true"></span>')+'<span class="nm">'+esc(p.name)+(p.desc?'<span class="ds">'+esc(p.desc)+'</span>':'')+'</span><span class="pr"></span><span class="act"></span></div>'}).join('')+'</section>');
 });
 
 
@@ -734,7 +734,7 @@ var FIL=[
   {id:'acomp',t:'Para acompañar',img:'huancaina-t',ok:function(p){return p.cat==='porciones'}},
   {id:'bebida',t:'Bebidas',img:'chicha-t',ok:function(p){return p.cat==='refrescos'||p.cat==='gaseosas'||p.cat==='infusiones'}}
 ];
-$('#crave').innerHTML=FIL.map(function(f){return '<button class="cv" type="button" data-fil="'+f.id+'" aria-pressed="false"><img src="'+f.img+'.webp" alt="" loading="lazy"><span>'+esc(f.t)+'</span></button>'}).join('')+'<button class="cv all" type="button" data-fil="all" aria-pressed="true"><span>Ver toda la carta</span></button>';
+$('#crave').innerHTML=FIL.map(function(f){return '<button class="cv" type="button" data-fil="'+f.id+'" aria-pressed="false"><img src="/'+f.img+'.webp" alt="" loading="lazy"><span>'+esc(f.t)+'</span></button>'}).join('')+'<button class="cv all" type="button" data-fil="all" aria-pressed="true"><span>Ver toda la carta</span></button>';
 function setFil(id){
   var F=null;FIL.forEach(function(f){if(f.id===id)F=f});
   $$('.cv').forEach(function(b){b.setAttribute('aria-pressed',(b.dataset.fil===id||(!F&&b.dataset.fil==='all'))?'true':'false')});
@@ -779,14 +779,16 @@ paintClock();setInterval(paintClock,1000);
 
 /* ---------- pedido ---------- */
 var cart={},form={nombre:'',tel:'',dir:'',ref:'',hora:'',obs:''},errors={};
-/* delivery: S/ 2 por km (zona alta: S/ 3, solo lo ve el despacho).
+/* delivery: S/ 5 el primer km y S/ 2 por cada km extra (zona alta: pendiente de tarifa, solo lo ve el despacho).
    TIENDA = punto aproximado de Av. Gran Chimú 1806 (confirmar con el pin real del local). */
-var TIENDA={lat:-8.073385,lng:-79.046648},TARIFA={normal:2,alta:3},FACTOR_RUTA=1.35;
+var TIENDA={lat:-8.073385,lng:-79.046648},FACTOR_RUTA=1.35;
+function costoEnvio(km){return km<=1?5:5+(km-1)*2}
+function kmCobro(a){return kmDesde(a)}
 var zona='normal',loc=null,locBusy=false,locErr='';
 function kmDesde(a){var R=6371,r=Math.PI/180,dLa=(a.lat-TIENDA.lat)*r,dLo=(a.lng-TIENDA.lng)*r;
   var h=Math.sin(dLa/2)*Math.sin(dLa/2)+Math.cos(TIENDA.lat*r)*Math.cos(a.lat*r)*Math.sin(dLo/2)*Math.sin(dLo/2);
   return Math.max(.5,Math.round(2*R*Math.asin(Math.sqrt(h))*FACTOR_RUTA*10)/10)}
-function envio(){if(mode!=='delivery'||!loc)return 0;return Math.ceil(kmDesde(loc)*TARIFA[zona]*2)/2*100}
+function envio(){if(mode!=='delivery'||!loc)return 0;return Math.round(costoEnvio(kmDesde(loc))*100)}
 function mapsLink(a){return 'https://maps.google.com/?q='+a.lat.toFixed(6)+','+a.lng.toFixed(6)}
 var NOLOC='Tu celular no permite compartir la ubicación desde aquí. Escribe tu dirección y envíanos tu ubicación por WhatsApp.';
 function pedirUbicacion(){
@@ -823,7 +825,7 @@ function avisar(){
     var items=[];for(var k in cart)items.push({n:byId(k).name,q:cart[k]});
     var d={tienda:TIENDA_ID,id:orderId,modo:mode,nombre:form.nombre.trim(),tel:form.tel.replace(/\D/g,''),
       dir:mode==='delivery'?form.dir.trim():'',ref:mode==='delivery'?form.ref.trim():'',
-      mapa:(mode==='delivery'&&loc)?mapsLink(loc):'',km:(mode==='delivery'&&loc)?kmDesde(loc):0,envioAlta:(mode==='delivery'&&loc)?Math.ceil(kmDesde(loc)*TARIFA.alta*2)/2:0,
+      mapa:(mode==='delivery'&&loc)?mapsLink(loc):'',km:(mode==='delivery'&&loc)?kmDesde(loc):0,envioAlta:(mode==='delivery'&&loc)?costoEnvio(kmDesde(loc)):0,
       hora:form.hora.trim(),pic:hasCeviche()?pic:'',leche:hasCeviche()&&leche,obs:form.obs.trim(),items:items,subtotal:subtotal()/100,envio:envio()/100,total:total()/100};
     fetch(AVISO,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d),keepalive:true,mode:'cors'}).catch(function(){})
   }catch(e){}
@@ -832,7 +834,7 @@ function message(){
   var L=['Hola La Ramadita de Amy, quiero hacer este pedido (N° '+orderId+'):',''];
   for(var k in cart){var p=byId(k);L.push('• '+cart[k]+' × '+p.name+' — '+sol(price(p)*cart[k]))}
   L.push('');if(hasCeviche())L.push(prefTxt());
-  if(mode==='delivery'&&loc){L.push('Productos: '+sol(subtotal()),'Delivery aprox.: '+sol(envio())+' ('+kmDesde(loc)+' km)','Total aprox.: '+sol(total()))}
+  if(mode==='delivery'&&loc){L.push('Productos: '+sol(subtotal()),'Delivery aprox.: '+sol(envio())+' ('+kmCobro(loc)+' km)','Total aprox.: '+sol(total()))}
   else L.push('Total: '+sol(total())+(mode==='delivery'?' + envío':''));
   L.push('Modalidad: '+MODES[mode],'Nombre: '+form.nombre.trim());
   if(form.tel.trim())L.push('Teléfono: '+form.tel.trim());
@@ -848,7 +850,7 @@ function valid(){errors={};if(!form.nombre.trim())errors.nombre='Escribe tu nomb
   var tel=form.tel.replace(/\D/g,'');
   if(mode==='delivery'&&!tel)errors.tel='Escribe un número para que el motorizado te llame.';
   else if(tel&&!/^(51)?9\d{8}$/.test(tel))errors.tel='Revisa el número: son 9 dígitos y empieza con 9.';
-  if(mode==='delivery'&&!form.dir.trim())errors.dir='Escribe la dirección (calle y número) para que el motorizado llegue.';return !Object.keys(errors).length}
+  if(mode==='delivery'&&!form.dir.trim()&&!loc)errors.dir='Escribe la dirección (calle y número) para que el motorizado llegue.';return !Object.keys(errors).length}
 function paintSheet(keep){
   var y=sheet.scrollTop,ids=Object.keys(cart);
   var f=function(k,label,ph,opt){return '<div class="field'+(errors[k]?' err':'')+'"><label for="f-'+k+'">'+label+(opt?' <small>(opcional)</small>':'')+'</label><input id="f-'+k+'" data-f="'+k+'"'+(k==='tel'?' type="tel" inputmode="tel" autocomplete="tel"':' autocomplete="off"')+' value="'+esc(form[k])+'" placeholder="'+ph+'">'+(errors[k]?'<span class="msg">'+errors[k]+'</span>':'')+'</div>'};
@@ -857,15 +859,15 @@ function paintSheet(keep){
     (loc?'<div class="locok"><span><b>GPS listo ✓</b><br>'+kmDesde(loc)+' km del local'+(loc.acc?' · precisión '+loc.acc+' m':'')+' · <a href="'+mapsLink(loc)+'" target="_blank" rel="noopener">Ver en mapa</a></span><button class="locx" type="button" id="locX">Quitar</button></div>'
       :'<button class="locbtn" type="button" id="getLoc"'+(locBusy?' disabled':'')+'>'+pin+(locBusy?'Buscando…':'Enviar ubicación GPS')+'</button><small>Si no funciona el GPS, escribe bien la dirección arriba y el motorizado te confirma el costo.</small>')+
     (locErr&&!loc?'<div class="locerr">'+esc(locErr)+'</div>':'')+'</div></div>';
-  var extra=f('tel','Teléfono de quien recibe','Ej.: 987 654 321')+f('dir','Dirección de entrega','Ej.: Av. España 1238, La Esperanza')+f('ref','Referencia','Ej.: frente al parque, portón azul',true)+locBox+f('hora','¿Para qué hora lo quieres?','Ej.: 1:30 p. m. (si es para ahora, déjalo vacío)',true);
+  var extra=f('tel','Teléfono de quien recibe','Ej.: 987 654 321')+f('dir','Dirección de entrega','Ej.: Av. España 1238, La Esperanza',!!loc)+f('ref','Referencia','Ej.: frente al parque, portón azul',true)+locBox+f('hora','¿Para qué hora lo quieres?','Ej.: 1:30 p. m. (si es para ahora, déjalo vacío)',true);
   sheetIn.innerHTML='<span class="grab" aria-hidden="true"></span><div class="sheet-top"><div class="who"><img src="icono.webp" alt=""><h2 id="sheetTitle">Tu pedido</h2></div><button class="close" type="button" id="closeSheet" aria-label="Cerrar">✕</button></div>'+
     (ids.length?'<div class="lines">'+ids.map(function(id){var p=byId(id);return '<div class="line"><b>'+esc(p.name)+'</b><small>'+sol(price(p))+' c/u</small>'+stepper(id)+'</div>'}).join('')+'</div>'+
       (hasCeviche()?'<div class="chip">Picante: <b>'+esc(pic)+'</b>'+(leche?' · Leche de tigre aparte':'')+' · <a href="#picSeg" id="toPrefs">cambiar</a></div>':'')+
       '<div class="chip"><b>Delivery</b> · De nuestra ramadita hasta la puerta de tu casa</div>'+
       f('nombre','Tu nombre','Para saber de quién es el pedido')+extra+
       '<div class="field"><label for="f-obs">Observaciones <small>(opcional)</small></label><textarea id="f-obs" data-f="obs" placeholder="Ej.: sin cebolla, con bastante canchita">'+esc(form.obs)+'</textarea></div>'+
-      (mode==='delivery'?(loc?'<div class="fee"><span>Productos</span><span style="color:inherit">'+sol(subtotal())+'</span></div><div class="fee"><span>Envío aprox. ('+kmDesde(loc)+' km)</span><span>'+sol(envio())+'</span></div>'
-        :'<p class="finep" style="margin:0;text-align:left">El costo del delivery lo confirma el motorizado por WhatsApp. Son S/ 2 por km desde el local.</p>'):'')+
+      (mode==='delivery'?(loc?'<div class="fee"><span>Productos</span><span style="color:inherit">'+sol(subtotal())+'</span></div><div class="fee"><span>Envío aprox. ('+kmCobro(loc)+' km)</span><span>'+sol(envio())+'</span></div>'
+        :'<p class="finep" style="margin:0;text-align:left">El costo del delivery lo confirma el motorizado por WhatsApp. S/ 5 el primer km y S/ 2 por cada km extra.</p>'):'')+
       '<div class="total"><span>'+(mode==='delivery'&&loc?'Total aprox.':'Total')+'</span><span>'+sol(total())+'</span></div>'+
       (mode==='delivery'&&loc?'<p class="finep" style="margin-top:-10px">El envío se confirma por chat según la ruta real.</p>':'')+
       '<a class="send" id="send" href="'+waLink()+'" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Pide por WhatsApp</a>'+
