@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Carta de La Ramadita de Amy</title>
 <meta name="description" content="Pescados y mariscos en La Esperanza, Trujillo. Mira la carta y pide a domicilio por WhatsApp. De nuestra ramadita hasta la puerta de tu casa.">
-<link rel="icon" href="assets/icono.webp" type="image/webp">
+<link rel="icon" href="icono.webp" type="image/webp">
 <meta property="og:type" content="website">
 <meta property="og:title" content="La Ramadita de Amy · Del mar a tu mesa">
 <meta property="og:description" content="Ceviches, parihuelas y mariscos frescos. Arma tu pedido y pídelo a domicilio por WhatsApp.">
-<meta property="og:image" content="assets/fotos/ceviche-mixto.webp">
+<meta property="og:image" content="ceviche-mixto.webp">
 <meta name="theme-color" content="#0D2B5C">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@400;500;600;700;800;900&display=swap">
@@ -69,7 +69,7 @@ a{color:inherit}
 @keyframes gull{from{transform:translateX(-12vw)}to{transform:translateX(112vw)}}
 .wm{position:absolute;z-index:8;left:50%;top:74px;width:min(78vw,430px);transform:translateX(-50%)}
 .wm{display:flex;aspect-ratio:527/124}
-.wm i{display:block;flex:1 1 0;min-width:0;height:100%;background:url(assets/wordmark.webp) no-repeat;background-size:1000% 100%;animation:wmw 4.4s ease-in-out infinite;animation-delay:calc(var(--i)*-.44s)}
+.wm i{display:block;flex:1 1 0;min-width:0;height:100%;background:url(wordmark.webp) no-repeat;background-size:1000% 100%;animation:wmw 4.4s ease-in-out infinite;animation-delay:calc(var(--i)*-.44s)}
 .wm::after{content:"";position:absolute;left:14%;right:14%;top:calc(100% + 10px);height:10px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 10'%3E%3Cpath d='M0 5C6 0 18 0 24 5S42 10 48 5' fill='none' stroke='%23FF6A13' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x 0 0/48px 10px;animation:wl 3.2s linear infinite}
 @keyframes wmw{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @keyframes wl{to{background-position:48px 0}}
@@ -467,7 +467,7 @@ body.has-bar .fine{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
 <body>
 
 <nav class="nav" aria-label="Principal">
-  <a class="iso" href="#inicio" aria-label="La Ramadita de Amy, ir al inicio"><img src="assets/icono.webp" alt=""></a>
+  <a class="iso" href="#inicio" aria-label="La Ramadita de Amy, ir al inicio"><img src="icono.webp" alt=""></a>
   <div class="r2">
     <a class="pill" href="#carta">Carta</a>
     <button class="pill" id="cartTop" type="button" aria-label="Ver pedido">
@@ -494,7 +494,7 @@ body.has-bar .fine{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
         <div class="wave w2" aria-hidden="true"></div>
         <div class="wave w3" aria-hidden="true"></div>
         <canvas class="bubbles" aria-hidden="true"></canvas>
-        <div class="emb" id="emb"><svg class="ly sunL" viewBox="0 0 400 300" aria-hidden="true"><defs><radialGradient id="sg" cx="45%" cy="40%" r="65%"><stop offset="0" stop-color="#FFB347"/><stop offset=".6" stop-color="#FF8A00"/><stop offset="1" stop-color="#F06A0A"/></radialGradient></defs><g class="rays"><path d="M194.6 86.2L200.0 20.0L205.4 86.2Z" fill="#FF7A00"/><path d="M212.3 86.9L225.0 46.5L221.2 88.6Z" fill="#FF9B26"/><path d="M227.9 90.6L258.2 31.6L237.8 94.8Z" fill="#FF7A00"/><path d="M244.0 98.1L271.1 65.6L251.5 103.1Z" fill="#FF9B26"/><path d="M256.9 107.5L307.5 64.5L264.5 115.1Z" fill="#FF7A00"/><path d="M268.9 120.5L306.4 100.9L273.9 128.0Z" fill="#FF9B26"/><path d="M277.2 134.2L340.4 113.8L281.4 144.1Z" fill="#FF7A00"/><path d="M283.4 150.8L325.5 147.0L285.1 159.7Z" fill="#FF9B26"/><path d="M285.8 166.6L352.0 172.0L285.8 177.4Z" fill="#FF7A00"/><path d="M285.1 184.3L325.5 197.0L283.4 193.2Z" fill="#FF9B26"/><path d="M281.4 199.9L340.4 230.2L277.2 209.8Z" fill="#FF7A00"/><path d="M273.9 216.0L306.4 243.1L268.9 223.5Z" fill="#FF9B26"/><path d="M264.5 228.9L307.5 279.5L256.9 236.5Z" fill="#FF7A00"/><path d="M251.5 240.9L271.1 278.4L244.0 245.9Z" fill="#FF9B26"/><path d="M237.8 249.2L258.2 312.4L227.9 253.4Z" fill="#FF7A00"/><path d="M221.2 255.4L225.0 297.5L212.3 257.1Z" fill="#FF9B26"/><path d="M205.4 257.8L200.0 324.0L194.6 257.8Z" fill="#FF7A00"/><path d="M187.7 257.1L175.0 297.5L178.8 255.4Z" fill="#FF9B26"/><path d="M172.1 253.4L141.8 312.4L162.2 249.2Z" fill="#FF7A00"/><path d="M156.0 245.9L128.9 278.4L148.5 240.9Z" fill="#FF9B26"/><path d="M143.1 236.5L92.5 279.5L135.5 228.9Z" fill="#FF7A00"/><path d="M131.1 223.5L93.6 243.1L126.1 216.0Z" fill="#FF9B26"/><path d="M122.8 209.8L59.6 230.2L118.6 199.9Z" fill="#FF7A00"/><path d="M116.6 193.2L74.5 197.0L114.9 184.3Z" fill="#FF9B26"/><path d="M114.2 177.4L48.0 172.0L114.2 166.6Z" fill="#FF7A00"/><path d="M114.9 159.7L74.5 147.0L116.6 150.8Z" fill="#FF9B26"/><path d="M118.6 144.1L59.6 113.8L122.8 134.2Z" fill="#FF7A00"/><path d="M126.1 128.0L93.6 100.9L131.1 120.5Z" fill="#FF9B26"/><path d="M135.5 115.1L92.5 64.5L143.1 107.5Z" fill="#FF7A00"/><path d="M148.5 103.1L128.9 65.6L156.0 98.1Z" fill="#FF9B26"/><path d="M162.2 94.8L141.8 31.6L172.1 90.6Z" fill="#FF7A00"/><path d="M178.8 88.6L175.0 46.5L187.7 86.9Z" fill="#FF9B26"/></g><circle cx="200" cy="172" r="90" fill="#FFF3E2"/><circle cx="200" cy="172" r="84" fill="url(#sg)"/></svg><svg class="ly wide" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true"><path d="M0 238C70 198 140 188 210 204C270 218 330 204 400 168V320H0Z" fill="#0099E6"/><path vector-effect="non-scaling-stroke" d="M0 238C70 198 140 188 210 204C270 218 330 204 400 168" fill="none" stroke="#BFE6FF" stroke-width="3" stroke-opacity=".7"/></svg><div class="shk3"><div class="dive" id="dive"><div class="in2"><div class="bob"><img src="assets/shark.webp" alt="El tiburón cocinero de La Ramadita de Amy" width="720" height="994"></div></div></div></div><svg class="ly wide frontL" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="fg" gradientUnits="userSpaceOnUse" x1="0" y1="200" x2="0" y2="460"><stop offset="0" stop-color="#0D2B5C"/><stop offset=".55" stop-color="#0D2B5C"/><stop offset="1" stop-color="#0D2B5C" stop-opacity=".55"/></linearGradient></defs><path d="M0 262C60 226 120 214 180 232C230 247 290 250 340 226C362 215 382 206 400 200V1200H0Z" fill="url(#fg)"/><path vector-effect="non-scaling-stroke" d="M0 262C60 226 120 214 180 232C230 247 290 250 340 226C362 215 382 206 400 200" fill="none" stroke="#fff" stroke-width="4" stroke-opacity=".75" stroke-linecap="round"/><path d="M28 238C88 198 150 192 205 214C252 232 302 230 362 194C334 226 292 242 240 238C190 234 142 210 28 238Z" fill="#1F57C3"/><path vector-effect="non-scaling-stroke" d="M60 228C110 206 160 204 200 218" fill="none" stroke="#fff" stroke-width="2.5" stroke-opacity=".6" stroke-linecap="round"/></svg><div class="splash" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
+        <div class="emb" id="emb"><svg class="ly sunL" viewBox="0 0 400 300" aria-hidden="true"><defs><radialGradient id="sg" cx="45%" cy="40%" r="65%"><stop offset="0" stop-color="#FFB347"/><stop offset=".6" stop-color="#FF8A00"/><stop offset="1" stop-color="#F06A0A"/></radialGradient></defs><g class="rays"><path d="M194.6 86.2L200.0 20.0L205.4 86.2Z" fill="#FF7A00"/><path d="M212.3 86.9L225.0 46.5L221.2 88.6Z" fill="#FF9B26"/><path d="M227.9 90.6L258.2 31.6L237.8 94.8Z" fill="#FF7A00"/><path d="M244.0 98.1L271.1 65.6L251.5 103.1Z" fill="#FF9B26"/><path d="M256.9 107.5L307.5 64.5L264.5 115.1Z" fill="#FF7A00"/><path d="M268.9 120.5L306.4 100.9L273.9 128.0Z" fill="#FF9B26"/><path d="M277.2 134.2L340.4 113.8L281.4 144.1Z" fill="#FF7A00"/><path d="M283.4 150.8L325.5 147.0L285.1 159.7Z" fill="#FF9B26"/><path d="M285.8 166.6L352.0 172.0L285.8 177.4Z" fill="#FF7A00"/><path d="M285.1 184.3L325.5 197.0L283.4 193.2Z" fill="#FF9B26"/><path d="M281.4 199.9L340.4 230.2L277.2 209.8Z" fill="#FF7A00"/><path d="M273.9 216.0L306.4 243.1L268.9 223.5Z" fill="#FF9B26"/><path d="M264.5 228.9L307.5 279.5L256.9 236.5Z" fill="#FF7A00"/><path d="M251.5 240.9L271.1 278.4L244.0 245.9Z" fill="#FF9B26"/><path d="M237.8 249.2L258.2 312.4L227.9 253.4Z" fill="#FF7A00"/><path d="M221.2 255.4L225.0 297.5L212.3 257.1Z" fill="#FF9B26"/><path d="M205.4 257.8L200.0 324.0L194.6 257.8Z" fill="#FF7A00"/><path d="M187.7 257.1L175.0 297.5L178.8 255.4Z" fill="#FF9B26"/><path d="M172.1 253.4L141.8 312.4L162.2 249.2Z" fill="#FF7A00"/><path d="M156.0 245.9L128.9 278.4L148.5 240.9Z" fill="#FF9B26"/><path d="M143.1 236.5L92.5 279.5L135.5 228.9Z" fill="#FF7A00"/><path d="M131.1 223.5L93.6 243.1L126.1 216.0Z" fill="#FF9B26"/><path d="M122.8 209.8L59.6 230.2L118.6 199.9Z" fill="#FF7A00"/><path d="M116.6 193.2L74.5 197.0L114.9 184.3Z" fill="#FF9B26"/><path d="M114.2 177.4L48.0 172.0L114.2 166.6Z" fill="#FF7A00"/><path d="M114.9 159.7L74.5 147.0L116.6 150.8Z" fill="#FF9B26"/><path d="M118.6 144.1L59.6 113.8L122.8 134.2Z" fill="#FF7A00"/><path d="M126.1 128.0L93.6 100.9L131.1 120.5Z" fill="#FF9B26"/><path d="M135.5 115.1L92.5 64.5L143.1 107.5Z" fill="#FF7A00"/><path d="M148.5 103.1L128.9 65.6L156.0 98.1Z" fill="#FF9B26"/><path d="M162.2 94.8L141.8 31.6L172.1 90.6Z" fill="#FF7A00"/><path d="M178.8 88.6L175.0 46.5L187.7 86.9Z" fill="#FF9B26"/></g><circle cx="200" cy="172" r="90" fill="#FFF3E2"/><circle cx="200" cy="172" r="84" fill="url(#sg)"/></svg><svg class="ly wide" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true"><path d="M0 238C70 198 140 188 210 204C270 218 330 204 400 168V320H0Z" fill="#0099E6"/><path vector-effect="non-scaling-stroke" d="M0 238C70 198 140 188 210 204C270 218 330 204 400 168" fill="none" stroke="#BFE6FF" stroke-width="3" stroke-opacity=".7"/></svg><div class="shk3"><div class="dive" id="dive"><div class="in2"><div class="bob"><img src="shark.webp" alt="El tiburón cocinero de La Ramadita de Amy" width="720" height="994"></div></div></div></div><svg class="ly wide frontL" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="fg" gradientUnits="userSpaceOnUse" x1="0" y1="200" x2="0" y2="460"><stop offset="0" stop-color="#0D2B5C"/><stop offset=".55" stop-color="#0D2B5C"/><stop offset="1" stop-color="#0D2B5C" stop-opacity=".55"/></linearGradient></defs><path d="M0 262C60 226 120 214 180 232C230 247 290 250 340 226C362 215 382 206 400 200V1200H0Z" fill="url(#fg)"/><path vector-effect="non-scaling-stroke" d="M0 262C60 226 120 214 180 232C230 247 290 250 340 226C362 215 382 206 400 200" fill="none" stroke="#fff" stroke-width="4" stroke-opacity=".75" stroke-linecap="round"/><path d="M28 238C88 198 150 192 205 214C252 232 302 230 362 194C334 226 292 242 240 238C190 234 142 210 28 238Z" fill="#1F57C3"/><path vector-effect="non-scaling-stroke" d="M60 228C110 206 160 204 200 218" fill="none" stroke="#fff" stroke-width="2.5" stroke-opacity=".6" stroke-linecap="round"/></svg><div class="splash" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
         <div class="fishes" aria-hidden="true"><svg><use href="#fish"/></svg><svg><use href="#fish"/></svg><svg><use href="#fish"/></svg><svg><use href="#fish"/></svg></div>
       </div>
       <div class="title" id="title">
@@ -508,7 +508,7 @@ body.has-bar .fine{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
 
   <section class="bite" data-pin="bite" aria-label="Picadito al momento">
     <div class="stage4">
-      <img class="bimg" src="assets/fotos/llevar.webp" alt="Ceviche fresco con cebolla, ají, camote y canchita en un envase para llevar con su cuchara" width="1000" height="667">
+      <img class="bimg" src="llevar.webp" alt="Ceviche fresco con cebolla, ají, camote y canchita en un envase para llevar con su cuchara" width="1000" height="667">
       <div class="bshade"></div>
       <div class="btx">
         <span class="kick">A DOMICILIO</span>
@@ -535,7 +535,7 @@ body.has-bar .fine{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
 
   <section class="tide" data-pin="tide" aria-label="Frescura que se siente">
     <div class="stage3">
-      <video class="vid" id="vid" muted loop playsinline preload="metadata" poster="assets/fotos/fresco-poster.webp" aria-hidden="true"><source src="assets/fotos/fresco.mp4" type="video/mp4"></video>
+      <video class="vid" id="vid" muted loop playsinline preload="metadata" poster="fresco-poster.webp" aria-hidden="true"><source src="fresco.mp4" type="video/mp4"></video>
       <div class="vshade"></div>
       <h2 class="big"><span>Frescura</span><span>que se</span><span class="sc">siente</span></h2>
     </div>
@@ -570,7 +570,7 @@ body.has-bar .fine{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
         <ol class="steps3"><li>Elige lo que se te antoje en la carta.</li><li>Envíalo por WhatsApp y te confirmamos.</li><li>Te lo llevamos hasta la puerta de tu casa.</li></ol>
       </div>
       <div class="box place">
-        <div class="ph"><img src="assets/local.webp" alt="Fachada de La Ramadita de Amy con murales marinos y la pizarra de Ceviches, Conchas y Chaufas" loading="lazy" width="1170" height="770"></div>
+        <div class="ph"><img src="local.webp" alt="Fachada de La Ramadita de Amy con murales marinos y la pizarra de Ceviches, Conchas y Chaufas" loading="lazy" width="1170" height="770"></div>
         <div class="in">
           <h3 class="big">Nuestra ramadita</h3>
           <ul>
@@ -602,7 +602,7 @@ body.has-bar .fine{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
     <div class="in">
       <div class="orn"><svg><use href="#ola"/></svg></div>
       <h2 class="big">Nuestra <span class="sc">historia</span></h2>
-      <figure class="hf"><img src="assets/equipo.webp" alt="El equipo de La Ramadita de Amy frente al mural del local" loading="lazy" width="906" height="456"></figure>
+      <figure class="hf"><img src="equipo.webp" alt="El equipo de La Ramadita de Amy frente al mural del local" loading="lazy" width="906" height="456"></figure>
       <p>La Ramadita de Amy nació en 2014 con un sueño sencillo pero poderoso: ofrecer comida marina con alma, sabor y corazón. Desde una pequeña cocina con grandes sueños, nos propusimos crear un espacio donde cada plato hable por sí solo y cada cliente se sienta como en casa. Con esfuerzo, dedicación y una sazón que conquiste paladares, fuimos creciendo y marcando presencia en la escena culinaria local. Hoy seguimos fieles a nuestra esencia: brindar calidad, atención cercana y ese sabor auténtico que nos representa. Porque más que una cevichería, somos una familia que cocina con pasión para todos.</p>
     </div>
   </section>
@@ -610,13 +610,13 @@ body.has-bar .fine{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
   <footer class="end" id="fin">
     <div class="in">
       <div>
-        <img class="logo-end" src="assets/wordmark-w.webp" alt="La Ramadita de Amy · Pescados y mariscos" loading="lazy">
+        <img class="logo-end" src="wordmark-w.webp" alt="La Ramadita de Amy · Pescados y mariscos" loading="lazy">
         <h2 class="big">Del mar a tu <span class="sc">mesa</span></h2>
         <div class="acts2">
           <a class="pill solid" id="waEnd" href="#carta"><svg aria-hidden="true"><use href="#wa"/></svg>Pide por WhatsApp</a>
         </div>
       </div>
-      <div class="shk" id="shk"><img src="assets/tiburon.webp" alt="" loading="lazy" width="483" height="420"></div>
+      <div class="shk" id="shk"><img src="tiburon.webp" alt="" loading="lazy" width="483" height="420"></div>
     </div>
     <div class="info">
       <div><b>DÓNDE</b>Av. Gran Chimú 1806, La Esperanza, Trujillo</div>
@@ -648,11 +648,11 @@ var store={get:function(k,d){try{var v=localStorage.getItem('ramadita-'+k);retur
 /* ---------- carta real del local (céntimos): [nombre, descripción, salón, para llevar] ---------- */
 var WA='51956052731';
 var CATS=[
-  {id:'platos',name:'Platos',short:'Platos',img:'fotos/ceviche-simple-t'},
-  {id:'fuentes',name:'Fuentes',short:'Fuentes',img:'fotos/parihuela-t',sub:'Para compartir en casa'},
-  {id:'criollos',name:'Criollos',short:'Criollos',img:'fotos/lomo-t'},
-  {id:'porciones',name:'Porciones',short:'Porciones',img:'fotos/huancaina-t'},
-  {id:'refrescos',name:'Refrescos',short:'Refrescos',img:'fotos/chicha-t'},
+  {id:'platos',name:'Platos',short:'Platos',img:'ceviche-simple-t'},
+  {id:'fuentes',name:'Fuentes',short:'Fuentes',img:'parihuela-t',sub:'Para compartir en casa'},
+  {id:'criollos',name:'Criollos',short:'Criollos',img:'lomo-t'},
+  {id:'porciones',name:'Porciones',short:'Porciones',img:'huancaina-t'},
+  {id:'refrescos',name:'Refrescos',short:'Refrescos',img:'chicha-t'},
   {id:'gaseosas',name:'Gaseosas',short:'Gaseosas'},
   {id:'infusiones',name:'Infusiones',short:'Infusiones'}
 ];
@@ -688,16 +688,16 @@ var priceTag=function(){return ''};
 
 /* ---------- los más pedidos ---------- */
 var ACTS=[
-  {n:'01',t:'Ceviche Mixto',img:'fotos/ceviche-mixto',say:'El que todos piden.',p:'Ceviche Mixto',d:'Pescado y mariscos frescos en su leche de tigre.',alt:'Ceviche mixto con langostinos, conchas, cebolla y canchita'},
-  {n:'02',t:'Trío Marino',img:'fotos/trio',say:'Tres sabores del mar en un plato.',p:'Trío Marino',d:'Para el que no se decide por uno solo.',alt:'Ceviche con chicharrón, canchita y choclo'},
-  {n:'03',t:'Arroz con Marisco',img:'fotos/arroz-marisco',say:'Salteado al fuego, al momento.',p:'Arroz con Marisco',d:'Recién salido de la sartén, con sabor a mar.',alt:'Arroz con mariscos en plato azul'},
-  {n:'04',t:'Pescado Frito Suco',img:'fotos/pescado-frito',say:'Doradito y crocante.',p:'Pescado Frito Suco',d:'Doradito por fuera, jugoso por dentro, con su sarsa.',alt:'Pescado entero frito con sarsa criolla y limón'},
-  {n:'Para compartir',t:'Fuente de Parihuela',img:'fotos/parihuela',say:'Para toda la familia, bien calientita.',p:'Fuente de Parihuela de Suco',d:'La fuente grande para el almuerzo en casa.',alt:'Parihuela de mariscos bien caliente'}
+  {n:'01',t:'Ceviche Mixto',img:'ceviche-mixto',say:'El que todos piden.',p:'Ceviche Mixto',d:'Pescado y mariscos frescos en su leche de tigre.',alt:'Ceviche mixto con langostinos, conchas, cebolla y canchita'},
+  {n:'02',t:'Trío Marino',img:'trio',say:'Tres sabores del mar en un plato.',p:'Trío Marino',d:'Para el que no se decide por uno solo.',alt:'Ceviche con chicharrón, canchita y choclo'},
+  {n:'03',t:'Arroz con Marisco',img:'arroz-marisco',say:'Salteado al fuego, al momento.',p:'Arroz con Marisco',d:'Recién salido de la sartén, con sabor a mar.',alt:'Arroz con mariscos en plato azul'},
+  {n:'04',t:'Pescado Frito Suco',img:'pescado-frito',say:'Doradito y crocante.',p:'Pescado Frito Suco',d:'Doradito por fuera, jugoso por dentro, con su sarsa.',alt:'Pescado entero frito con sarsa criolla y limón'},
+  {n:'Para compartir',t:'Fuente de Parihuela',img:'parihuela',say:'Para toda la familia, bien calientita.',p:'Fuente de Parihuela de Suco',d:'La fuente grande para el almuerzo en casa.',alt:'Parihuela de mariscos bien caliente'}
 ];
 var track=$('#track'),dots=$('#dots');
 ACTS.forEach(function(a){
   var pr=byName(a.p);
-  track.insertAdjacentHTML('beforeend','<article class="card"><div class="ph"><img src="assets/'+a.img+'.webp" alt="'+esc(a.alt)+'" loading="lazy"><span class="num">'+a.n+'</span><span class="say"><span>'+esc(a.say)+'</span><img src="assets/icono.webp" alt=""></span></div>'+
+  track.insertAdjacentHTML('beforeend','<article class="card"><div class="ph"><img src="'+a.img+'.webp" alt="'+esc(a.alt)+'" loading="lazy"><span class="num">'+a.n+'</span><span class="say"><span>'+esc(a.say)+'</span><img src="icono.webp" alt=""></span></div>'+
     '<div class="tx"><h3 class="big">'+esc(a.t)+'</h3><div class="ds">'+esc(a.d)+'</div><div class="row"><span class="tagp" data-pid="'+pr.id+'"></span>'+
     '<button class="add2" type="button" data-q="'+pr.id+'" data-d="1">Lo quiero <span aria-hidden="true">+</span></button></div></div></article>');
   dots.insertAdjacentHTML('beforeend','<button type="button" class="dt" aria-label="Ver plato '+(dots.children.length+1)+'"><b></b></button>');
@@ -718,8 +718,8 @@ requestAnimationFrame(paintTrack);
 var tabs=$('#tabs'),menu=$('#menu');
 CATS.forEach(function(c){
   tabs.insertAdjacentHTML('beforeend','<button class="tab" type="button" role="tab" data-tab="'+c.id+'" aria-selected="false">'+c.short+'</button>');
-  menu.insertAdjacentHTML('beforeend','<section class="sec" id="sec-'+c.id+'"><div class="sec-h"><h3 class="big">'+c.name+(c.sub?'<small>'+c.sub+'</small>':'')+'</h3>'+(c.img?'<img src="assets/'+c.img+'.webp" alt="" loading="lazy">':'')+'</div>'+
-    P.filter(function(p){return p.cat===c.id}).map(function(p){return '<div class="item" data-item="'+p.id+'">'+(p.ph?'<button class="thumb" type="button" data-photo="'+p.id+'" aria-label="Ver foto de '+esc(p.name)+'"><img src="assets/fotos/'+p.ph+'-t.webp" alt="" loading="lazy"></button>':'<span class="thumb no" aria-hidden="true"></span>')+'<span class="nm">'+esc(p.name)+(p.desc?'<span class="ds">'+esc(p.desc)+'</span>':'')+'</span><span class="pr"></span><span class="act"></span></div>'}).join('')+'</section>');
+  menu.insertAdjacentHTML('beforeend','<section class="sec" id="sec-'+c.id+'"><div class="sec-h"><h3 class="big">'+c.name+(c.sub?'<small>'+c.sub+'</small>':'')+'</h3>'+(c.img?'<img src="'+c.img+'.webp" alt="" loading="lazy">':'')+'</div>'+
+    P.filter(function(p){return p.cat===c.id}).map(function(p){return '<div class="item" data-item="'+p.id+'">'+(p.ph?'<button class="thumb" type="button" data-photo="'+p.id+'" aria-label="Ver foto de '+esc(p.name)+'"><img src="'+p.ph+'-t.webp" alt="" loading="lazy"></button>':'<span class="thumb no" aria-hidden="true"></span>')+'<span class="nm">'+esc(p.name)+(p.desc?'<span class="ds">'+esc(p.desc)+'</span>':'')+'</span><span class="pr"></span><span class="act"></span></div>'}).join('')+'</section>');
 });
 
 
@@ -734,7 +734,7 @@ var FIL=[
   {id:'acomp',t:'Para acompañar',img:'huancaina-t',ok:function(p){return p.cat==='porciones'}},
   {id:'bebida',t:'Bebidas',img:'chicha-t',ok:function(p){return p.cat==='refrescos'||p.cat==='gaseosas'||p.cat==='infusiones'}}
 ];
-$('#crave').innerHTML=FIL.map(function(f){return '<button class="cv" type="button" data-fil="'+f.id+'" aria-pressed="false"><img src="assets/fotos/'+f.img+'.webp" alt="" loading="lazy"><span>'+esc(f.t)+'</span></button>'}).join('')+'<button class="cv all" type="button" data-fil="all" aria-pressed="true"><span>Ver toda la carta</span></button>';
+$('#crave').innerHTML=FIL.map(function(f){return '<button class="cv" type="button" data-fil="'+f.id+'" aria-pressed="false"><img src="'+f.img+'.webp" alt="" loading="lazy"><span>'+esc(f.t)+'</span></button>'}).join('')+'<button class="cv all" type="button" data-fil="all" aria-pressed="true"><span>Ver toda la carta</span></button>';
 function setFil(id){
   var F=null;FIL.forEach(function(f){if(f.id===id)F=f});
   $$('.cv').forEach(function(b){b.setAttribute('aria-pressed',(b.dataset.fil===id||(!F&&b.dataset.fil==='all'))?'true':'false')});
@@ -858,7 +858,7 @@ function paintSheet(keep){
       :'<button class="locbtn" type="button" id="getLoc"'+(locBusy?' disabled':'')+'>'+pin+(locBusy?'Buscando…':'Enviar ubicación GPS')+'</button><small>Si no funciona el GPS, escribe bien la dirección arriba y el motorizado te confirma el costo.</small>')+
     (locErr&&!loc?'<div class="locerr">'+esc(locErr)+'</div>':'')+'</div></div>';
   var extra=f('tel','Teléfono de quien recibe','Ej.: 987 654 321')+f('dir','Dirección de entrega','Ej.: Av. España 1238, La Esperanza')+f('ref','Referencia','Ej.: frente al parque, portón azul',true)+locBox+f('hora','¿Para qué hora lo quieres?','Ej.: 1:30 p. m. (si es para ahora, déjalo vacío)',true);
-  sheetIn.innerHTML='<span class="grab" aria-hidden="true"></span><div class="sheet-top"><div class="who"><img src="assets/icono.webp" alt=""><h2 id="sheetTitle">Tu pedido</h2></div><button class="close" type="button" id="closeSheet" aria-label="Cerrar">✕</button></div>'+
+  sheetIn.innerHTML='<span class="grab" aria-hidden="true"></span><div class="sheet-top"><div class="who"><img src="icono.webp" alt=""><h2 id="sheetTitle">Tu pedido</h2></div><button class="close" type="button" id="closeSheet" aria-label="Cerrar">✕</button></div>'+
     (ids.length?'<div class="lines">'+ids.map(function(id){var p=byId(id);return '<div class="line"><b>'+esc(p.name)+'</b><small>'+sol(price(p))+' c/u</small>'+stepper(id)+'</div>'}).join('')+'</div>'+
       (hasCeviche()?'<div class="chip">Picante: <b>'+esc(pic)+'</b>'+(leche?' · Leche de tigre aparte':'')+' · <a href="#picSeg" id="toPrefs">cambiar</a></div>':'')+
       '<div class="chip"><b>Delivery</b> · De nuestra ramadita hasta la puerta de tu casa</div>'+
@@ -897,7 +897,7 @@ document.addEventListener('click',function(e){
 });
 scrim.addEventListener('click',closeSheet);
 var lb=$('#lb'),lbId=null;
-function openLb(id){var p=byId(id);lbId=id;$('#lbImg').src='assets/fotos/'+p.ph+'.webp';$('#lbImg').alt=p.name;$('#lbName').textContent=p.name;$('#lbPr').textContent=sol(price(p));$('#lbTag').textContent=priceTag();lb.classList.add('show');$('#lbX').focus()}
+function openLb(id){var p=byId(id);lbId=id;$('#lbImg').src=''+p.ph+'.webp';$('#lbImg').alt=p.name;$('#lbName').textContent=p.name;$('#lbPr').textContent=sol(price(p));$('#lbTag').textContent=priceTag();lb.classList.add('show');$('#lbX').focus()}
 function closeLb(){lb.classList.remove('show')}
 lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){if(lb.classList.contains('show'))closeLb();else if(sheetOpen)closeSheet()}});
