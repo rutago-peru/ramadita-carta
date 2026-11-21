@@ -9,7 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="La Ramadita de Amy · Del mar a tu mesa">
 <meta property="og:description" content="Ceviches, parihuelas y mariscos frescos. Arma tu pedido y pídelo a domicilio por WhatsApp.">
-<meta property="og:image" content="https://zetadiaz92-sys.github.io/ramadita-carta/og.jpg">
+<meta property="og:image" content="https://rutago-peru.github.io/ramadita-carta/og3.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="theme-color" content="#0D2B5C">
@@ -634,8 +634,8 @@ body.has-bar .fine{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
 <div class="scrim" id="scrim"></div>
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle"><div class="sheet-in" id="sheetIn"></div></div>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
 (function(){
 'use strict';
@@ -786,7 +786,7 @@ var cart={},form={nombre:'',tel:'',dir:'',ref:'',hora:'',obs:''},errors={};
 /* delivery: S/ 5 el primer km y S/ 2 por cada km extra (zona alta: pendiente de tarifa, solo lo ve el despacho).
    TIENDA = punto aproximado de Av. Gran Chimú 1806 (confirmar con el pin real del local). */
 var TIENDA={lat:-8.073385,lng:-79.046648},FACTOR_RUTA=1.35;
-function costoEnvio(km){return km<=1?5:5+(km-1)*2}
+function costoEnvio(km){var r=Math.round((km<=1?5:5+(km-1)*2)*100)/100;return Math.ceil(r)}
 function kmCobro(a){return kmDesde(a)}
 var zona='normal',loc=null,locBusy=false,locErr='';
 function kmDesde(a){var R=6371,r=Math.PI/180,dLa=(a.lat-TIENDA.lat)*r,dLo=(a.lng-TIENDA.lng)*r;
@@ -821,7 +821,7 @@ function setMode(m){mode=m;save();paintMode();paintBar();if(sheetOpen)paintSheet
 var sheet=$('#sheet'),scrim=$('#scrim'),sheetIn=$('#sheetIn'),sheetOpen=false,lastFocus;
 function prefTxt(){return 'Picante: '+pic+(leche?' · Leche de tigre aparte':'')}
 var MODES={llevar:'Para llevar (recojo en el local)',delivery:'Delivery',local:'Comer en el local'};
-var AVISO='https://rutago.app.n8n.cloud/webhook/pedido-rutago-7c3e91',TIENDA_ID='ramadita';
+var AVISO='https://uwsfcnnzgvpanzqoctno.supabase.co/functions/v1/pedido',TIENDA_ID='ramadita';
 function nuevoId(){var c='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',r='RG-';for(var i=0;i<5;i++)r+=c.charAt(Math.floor(Math.random()*c.length));return r}
 var orderId=nuevoId();
 function avisar(){
@@ -878,7 +878,8 @@ function paintSheet(keep){
       '<div class="total"><span>'+(mode==='delivery'&&loc?'Total aprox.':'Total')+'</span><span>'+sol(total())+'</span></div>'+
       (mode==='delivery'&&loc?'<p class="finep" style="margin-top:-10px">El envío se confirma por chat según la ruta real.</p>':'')+
       '<a class="send" id="send" href="'+waLink()+'" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Pide por WhatsApp</a>'+
-      '<p class="finep">Se abre WhatsApp con tu pedido escrito. Tú lo envías y te confirmamos por chat.</p>'
+      '<p class="finep">Se abre WhatsApp con tu pedido escrito. Tú lo envías y te confirmamos por chat.</p>'+
+      '<p class="finep" style="margin-top:6px;font-size:11.5px">Usamos tu nombre, teléfono y ubicación solo para preparar y entregar este pedido.</p>'
     :'<p class="empty">Todavía no agregaste nada. Toca el + de lo que se te antoje.</p>');
   if(keep)sheet.scrollTop=y;
   initMap();

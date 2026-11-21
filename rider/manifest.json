@@ -1,0 +1,18 @@
+{
+  "name": "RutaGO Rider",
+  "short_name": "RutaGO Rider",
+  "id": "./",
+  "start_url": "./?app=1",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#07040f",
+  "theme_color": "#07040f",
+  "lang": "es-PE",
+  "description": "App de motorizados RutaGO: pedidos cercanos, ganancias y progreso en Trujillo.",
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
